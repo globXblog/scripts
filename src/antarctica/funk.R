@@ -63,9 +63,7 @@ writeDrums <- function(DF,fname='drums.mp3',lo=0.1,wind1=7,wind2=15,tDiff=-3,dat
   drums=mix(list(ki,ki,ki,sn,sn,hho,hhc,ride,bell,crash),
             volume=c(1,1,1,1,1,0.5,0.4,0.6,0.6,0.4),
             pan=c(-1,1,0,-0.7,0.7,0.8,0.8,-0.8,-0.8,0))
-  writeWave(drums,'temp.wav')
-  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',fname))
-  file.remove('temp.wav' )
+  writeMP3(drums,fname)
   return(out)
 }
 
@@ -99,9 +97,7 @@ writeGuitar <- function(DF,fname='guitar.mp3',lo=0.02,tThresh=-30,dataOnly=F){
   E1=oneTrack(sam_gE1,vguitar,pattern=c(10,14,16,20,23,26),lo=lo)
   G1=oneTrack(sam_gG1,vguitar,pattern=c(15),lo=lo)
   guitar=mix(list(E0,F0,G0,A0,B0,D1,E1,G1))
-  writeWave(guitar,'temp.wav')
-  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',fname))
-  file.remove('temp.wav' )
+  writeMP3(guitar,fname)
   return(out)
 }
 
@@ -134,9 +130,7 @@ writeOrgan <- function(DF,fname='organ.mp3',lo=0.02,tThresh=-30,dataOnly=F){
   E1=oneTrack(sam_E1,vguitar,pattern=c(10,14,16,20,23,26),lo=lo)
   G1=oneTrack(sam_G1,vguitar,pattern=c(15),lo=lo)
   organ=mix(list(E0,F0,G0,A0,B0,D1,E1,G1))
-  writeWave(organ,'temp.wav')
-  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',fname))
-  file.remove('temp.wav' )
+  writeMP3(organ,fname)
   return(out)
 }
 
@@ -175,9 +169,7 @@ writeHarmonics <- function(DF,fname='harmonics.mp3',qExp=0.25,dataOnly=F){
     }
   }
   harmonics=mix(slist,volume=(1:length(slist))/length(slist))
-  writeWave(harmonics,'temp.wav')
-  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',fname))
-  file.remove('temp.wav' )
+  writeMP3(harmonics,fname)
   return(out)
 }
 
@@ -204,9 +196,7 @@ writePiano <- function(DF,fname='piano.mp3',dataOnly=F){
   cB=oneTrack(sam_B,as.numeric(months %in% c(8)),pattern=c(1))
   cBb=oneTrack(sam_Bb,as.numeric(months %in% c(9)),pattern=c(1))
   piano=mix(list(cE,cF,cG,cA,cC,cD,cB,cBb))
-  writeWave(piano,'temp.wav')
-  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',fname))
-  file.remove('temp.wav' )
+  writeMP3(piano,fname)
 }
 
 writeBass <- function(DF,fname='bass.mp3',wind1=7,dataOnly=F){
@@ -236,8 +226,6 @@ writeBass <- function(DF,fname='bass.mp3',wind1=7,dataOnly=F){
   B0=oneTrack(dampen(sam_bB),vkick*as.numeric(months %in% c(8)))
   Bb0=oneTrack(dampen(sam_bBb),vkick*as.numeric(months %in% c(9)))
   bass=mix(list(E0,F0,G0,A0,C1,D1,B0,Bb0))
-  writeWave(bass,'temp.wav')
-  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',fname))
-  file.remove('temp.wav' )
+  writeMP3(bass,fname)
   return(out)
 }

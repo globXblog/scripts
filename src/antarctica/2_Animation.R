@@ -57,6 +57,7 @@ getPlot <- function(dataViz, dataSon,
                     d0=min(dataViz[,1], na.rm=TRUE), dn=min(dataViz[,1], na.rm=TRUE),
                     yLimMin=min(dataViz[,2], na.rm=TRUE),yLimMax=max(dataViz[,2]), na.rm=TRUE,
                     circleSizeMin=min(dataViz[,2], na.rm=TRUE), circleSizeMax=max(dataViz[,2], na.rm=TRUE),
+                    circleSizeRange=c(0,60),
                     plotTitle="title",
                     yAxistitle="value", ...){
   # Combine visu and soni
@@ -72,7 +73,7 @@ getPlot <- function(dataViz, dataSon,
     coord_cartesian(xlim=c(d0,dn))+
     scale_y_continuous(limits=c(yLimMin,yLimMax), expand=c(0.15,0.15),position = "right", ...)+
     labs(y=yAxistitle)+
-    scale_size(range=c(0,60),limits=c(circleSizeMin, circleSizeMax))+
+    scale_size(range=circleSizeRange,limits=c(circleSizeMin, circleSizeMax))+
     theme(legend.position="none",
           panel.grid=element_blank(),
           axis.text=element_text(size=70),
@@ -88,7 +89,7 @@ getPlot <- function(dataViz, dataSon,
 }
 
 # Set Y axis manual breaks for each variable
-varParam <- list("Radiation"=c(0,200,400,600,800),
+varParam <- list("Radiation"=c(0,250,500,750,1000),
                  "Relative Humidity"=c(20,40,60,80,100),
                  "Streamflow"=c(0,4000,8000,12000),
                  "Temperature"=c(-50,-35,-20,-5,10),
@@ -99,11 +100,14 @@ varName <- list("Radiation"=expression(paste("Radiation [W/",m^2,"]")),
                  "Streamflow"= expression(paste("Streamflow [",m^3,"/s]")),
                  "Temperature"="Temperature [°C]",
                  "Windspeed"="Windspeed [m/s]")
+# Size of largest circle for each variable
+largestPoint=list(60,20,60,60,60)
 
 # Set title colour
 titleColour <- "#AEBACE"
 # textColour <- "#44EE77"
 textColour <- "#6EF5A5"
+lineColour <- "#1E5786"
 
 # Initialise list to store plot for each variable
 varPlot <- vector(length=m, mode="list")
@@ -113,6 +117,7 @@ for (i in 1:n) {   # For each row in Antarctica (one specific date)
   # Substring data
   dataViz <- dataVisu[seq(1,i),]
   dataSon <- dataSoni[seq(1,i),]
+  currentDate <- dataViz$date[i]
   
   # Find panel background colour based on radiation value
   data_colour <- dataVisu[i,]
@@ -130,18 +135,39 @@ for (i in 1:n) {   # For each row in Antarctica (one specific date)
   
   col1 <- ggplot_build(p1)
   ptColour <- col1$data[[1]]$colour
-
+  textColour <- ptColour
+  
   # Get plot for each variable
   for (j in 1:m){ 
     # Get plot for j-th variable
     temp <- getPlot(dataViz=dataViz[,c(1,j+1)],dataSon=dataSon[,c(1,j+1)],
-                    bgColour=bgColour,ptColour=ptColour,lineColour="#1E5786",textColour=textColour,
+                    bgColour=bgColour,ptColour=ptColour,lineColour=lineColour,textColour=textColour,
                     d0=d0,dn=dn,
-                    yLimMin=min(dataVisu[,j+1], na.rm=TRUE),yLimMax=max(dataVisu[,j+1], na.rm=TRUE),
+                    yLimMin=min(dataVisu[,j+1], na.rm=TRUE),yLimMax=max(varParam[[j]]),
                     circleSizeMin=min(dataSoni[,j+1], na.rm=TRUE), circleSizeMax=max(dataSoni[,j+1], na.rm=TRUE),
+                    circleSizeRange=c(0,largestPoint[[j]]),
                     yAxistitle=varName[[j]],
                     plotTitle=varName[[j]],
                     breaks=varParam[[j]])
+    # add current date and data source on Q panel
+    vname=names(varParam)[j]
+    if(vname=='Streamflow'){
+      temp <- temp+annotate(geom='text',label=format(currentDate,format="%B %Y"),
+                            x=Antarctica$date[round(n/2)],
+                            y=0.5*max(varParam[[vname]]),
+                            color=rgb(0,0,0,0.05),size=200,fontface='bold')
+      temp <- temp+annotate(geom='text',label='Data: McMurdo Dry Valleys LTER',
+                            x=Antarctica$date[1],y=min(Antarctica[[vname]],na.rm=TRUE),
+                            hjust=0.2,vjust=1,
+                            color=rgb(0,0,0,0.6),size=28)
+    }
+    # add plot title on R panel
+    if(vname=='Radiation'){
+      temp <- temp+annotate(geom='text',label=c("Weather in the Dry Valleys of Antarctica"),
+                            x=Antarctica$date[round(n/2)],
+                            y=0.97*max(varParam[[vname]]),
+                            color=rgb(0,0,0,0.4),size=60)
+    }
     # Add x axis
     temp <- temp+theme(axis.title.x=element_blank(),
                        axis.text.x=element_blank())
@@ -150,14 +176,10 @@ for (i in 1:n) {   # For each row in Antarctica (one specific date)
   }
   
   # Assemble plots of all variable for i-th date
-  allPlotsSubtitle <- dataViz$date[i]
   allPlots <- varPlot[[1]]/varPlot[[2]]/varPlot[[5]]/varPlot[[4]]/varPlot[[3]]
-  allPlots <- allPlots+plot_annotation(title="Antarctica", subtitle=allPlotsSubtitle) & 
-  theme(plot.title=element_text(size=200, colour=titleColour),
-        plot.subtitle=element_text(size=140, colour=titleColour))
-  
+
   # Save
-  png(filename=paste0(wd, "/anim_im/",sprintf("im_%03d", i),".png"),
+  png(filename=paste0(wd, "/anim_im/",sprintf("im_%04d", i),".png"),
       width=(1280*3), height=(720*3), res=36)
   print(allPlots)
   dev.off()
@@ -179,9 +201,4 @@ av_encode_video(input=lf,
                 output="Antarctica.mp4",
                 framerate=(9346/1172),
                 vfilter=fadeFilter)   # Fade in and out
-
-# https://ffmpeg.org/ffmpeg-filters.html#fade
-# Add units
-# Title: weather in Antarctica?
-# Add source?
-
+  

@@ -95,9 +95,9 @@ varParam <- list("Radiation"=c(0,250,500,750,1000),
                  "Temperature"=c(-50,-35,-20,-5,10),
                  "Windspeed"=c(0,5,10,15))
 
-varName <- list("Radiation"=expression(paste("Radiation [W/",m^2,"]")),
+varName <- list("Radiation"=expression(paste("Radiation [",mu,"M/s/",m^2,"]")),
                  "Relative Humidity"="Relative Humidity [%]",
-                 "Streamflow"= expression(paste("Streamflow [",m^3,"/s]")),
+                 "Streamflow"="Streamflow [L/s]",
                  "Temperature"="Temperature [°C]",
                  "Windspeed"="Windspeed [m/s]")
 # Size of largest circle for each variable
@@ -188,17 +188,26 @@ for (i in 1:n) {   # For each row in Antarctica (one specific date)
 
 # ----------
 # Animate
+bpm=120
+audio="finalMix.mp3"
+output="Antarctica.mp4"
+# Get image files and audio duration
 lf <- list.files("anim_im", full.names=TRUE)  # List all images
 k <- length(lf)
-
+spt=(60/bpm)/4 # second per time step
+d=k*spt
+# Make sure lf is sorted numerically rather than alphabetically
+foo=unlist(strsplit(lf,'_'))
+i.png=foo[seq(3,length(foo),3)]
+foo=unlist(strsplit(i.png,'\\.'))
+number=as.integer(foo[seq(1,length(foo),2)])
+w=sort.int(number,index.return=T)
+lf=lf[w$ix]
 # Set animation fade in and fade out
 nFadeIn <- 3   # In seconds
 nFadeOut <- 8   # In seconds
-fadeFilter <- paste0("fade=t=in:st=0:d=", nFadeIn, ":alpha=0", ", fade=t=out:st=", (k*1172/9346)-nFadeOut, ":d=", nFadeOut, ":alpha=0")
+fadeFilter <- paste0("fade=t=in:st=0:d=", nFadeIn, ":alpha=0", ", fade=t=out:st=", d-nFadeOut, ":d=", nFadeOut, ":alpha=0")
 
-av_encode_video(input=lf,
-                audio="finalMix.mp3",
-                output="Antarctica.mp4",
-                framerate=(9346/1172),
+av_encode_video(input=lf,audio=audio,output=output,framerate=k/d,
                 vfilter=fadeFilter)   # Fade in and out
   

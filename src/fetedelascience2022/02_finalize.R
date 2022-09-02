@@ -32,14 +32,20 @@ if(!file.exists('trends.RData')){
   save(trends,file='trends.RData')
 }
 load('trends.RData')
+ncolors=7
 colorMap='#c4dfe6';colorBkg= '#011a27';colorTxt='#c4dfe6'
 frMap = map_data("world") %>% filter(region=='France')
 DF=trends
 DF$symbol=0;DF$symbol[DF$signif & DF$trend>0]=1;DF$symbol[DF$signif & DF$trend<0]=-1
+DF$sign=1;DF$sign[DF$trend<0]=-1
+
 lev=paste0('\n',levels(DF$variable))
 DF$variable=factor(paste0('\n',DF$variable),levels=lev)
 zlim=max(abs(DF$trend))*c(-1,1)
 ltxt=paste('Évolution sur la période',period[1],'-',period[length(period)],'[%]')
+pal=RColorBrewer::brewer.pal(11,'BrBG')
+br=round(seq(-70,70,length.out = ncolors+1))
+DF=arrange(DF,abs(trend))
 
 g0=ggplot()+
   geom_polygon(data=frMap,aes(long,lat,group=group),fill=colorMap,alpha=0.15)+
@@ -49,15 +55,20 @@ g0=ggplot()+
         legend.title = element_text(color=colorTxt,size=16),
         legend.text = element_text(color=colorTxt,size=12),
         strip.text = element_text(color=colorTxt,size=18,vjust=1.5))
-g=g0+geom_point(data=DF,aes(lon,lat,fill=trend,shape=factor(symbol),size=signif))+
-  scale_fill_distiller(ltxt,palette='BrBG',direction=1,limits=zlim)+
-  scale_shape_manual(values=c('triangle down filled','circle filled','triangle filled'),guide=NULL)+
-  scale_size_manual(values=c(2,4),guide=NULL)+
+g=g0+geom_point(data=DF,aes(lon,lat,fill=trend,shape=factor(sign),size=abs(trend)),alpha=0.8)+
+  scale_fill_stepsn(ltxt,colors=pal,breaks=br,limits=zlim)+
+  # scale_fill_distiller(ltxt,palette='BrBG',direction=1,limits=zlim)+
+  # scale_shape_manual(values=c('triangle down filled','circle filled','triangle filled'),guide=NULL)+
+  # scale_shape_manual(values=c('triangle down filled','triangle filled'),guide=NULL)+
+  scale_shape_manual(values=c('circle filled','circle filled','circle filled'),guide=NULL)+
+  # scale_size_manual(values=c(2,4),guide=NULL)+
+  scale_size_continuous(range=c(1,5),guide=NULL)+
   facet_wrap(.~variable,nrow=1)+
   guides(fill = guide_colourbar(direction='horizontal',title.position='top',title.hjust=0.5,
-                                barwidth=unit(4,'in')))
+                                barwidth=unit(4,'in'),frame.colour=colorTxt,ticks=FALSE))
 
 pdf(file='trends.pdf',height=5,width=11,useDingbats=FALSE)
 g
 dev.off()
 
+system('pdftoppm trends.pdf trends -jpeg -rx 300 -ry 300')

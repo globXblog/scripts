@@ -72,3 +72,25 @@ g
 dev.off()
 
 system('pdftoppm trends.pdf trends -jpeg -rx 300 -ry 300')
+
+# Final multi-station videos ----
+load('Q_SAFRAN.RData')
+set.seed(123456)
+ix=sample(1:NROW(sites))
+# concatStations(sites$ID[ix],'FeteDeLaScience2022_full')
+nvid=12
+frMap = map_data("world") %>% filter(region=='France')
+g0=ggplot(frMap)+geom_polygon(aes(long,lat,group=group))+theme_void()+coord_map()
+gs=list()
+for(k in 1:((NROW(sites)%/%nvid)+1)){
+  jx=((k-1)*nvid)+(1:12)
+  jx=jx[jx<=NROW(sites)]
+  if(length(jx)>0){
+    concatStations(sites$ID[ix[jx]],paste0('FeteDeLaScience2022_',k))
+    gs[[k]]=g0+geom_point(data=sites[ix[jx],],aes(Lon,Lat),col='yellow')
+  }
+}
+
+pdf(file='vids.pdf',height=5,width=11,useDingbats=FALSE)
+gridExtra::grid.arrange(grobs=gs,ncol=5)
+dev.off()

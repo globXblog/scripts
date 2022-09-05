@@ -48,8 +48,8 @@ for(k in 202:202){ # Loop on stations
           print(g)
         }
       }
-      av_capture_graphics(makeplot(),output=paste0(fname,'.mp4'),
-                          audio=paste0(fname,'.mp3'),
+      av_capture_graphics(makeplot(),output=file.path('www',paste0(fname,'.mp4')),
+                          audio=file.path('www',paste0(fname,'.mp3')),
                           res=72*resfactor, width=1280*resfactor,height=720*resfactor,
                           framerate=tps)
     }
@@ -69,7 +69,8 @@ for(k in 202:202){ # Loop on stations
     }
     fadeFilter <- paste0("fade=t=in:st=0:d=", tFadeIn, ":alpha=0:color=#011a27", 
                          ", fade=t=out:st=", dIntroScene-tFadeOut-0.5, ":d=", tFadeOut, ":alpha=0:color=#011a27")
-    av_capture_graphics(makeplot(),output=paste0(ID,'_0.mp4'),audio='theme.mp3',
+    av_capture_graphics(makeplot(),output=file.path('www',paste0(ID,'_0.mp4')),
+                        audio=file.path('www','theme.mp3'),
                         res=72*resfactor, width=1280*resfactor,height=720*resfactor,
                         framerate=tps,vfilter=fadeFilter)
   }

@@ -125,7 +125,7 @@ createSound <- function(seasonnal,ID,fname,normalizeAnom=FALSE,style='major',bpm
   final=mix(waves=c(list(i1,i2,bass,drum_bass,drum_ride,drum_hh,drum_snare)),
             vol=c(0.7,1,1,1,0.7,0.3,1),pan=c(-0.7,0.7,0,0,0,0,0))
   writeWave(final,'temp.wav')
-  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',paste0(fname,'.mp3')))
+  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',file.path('www',paste0(fname,'.mp3'))))
   file.remove('temp.wav')
 }
 
@@ -161,7 +161,7 @@ createTheme <- function(bpm=90,rep=4,t1=0,t2=Inf,t3=Inf,t4=Inf,trimTo=Inf){
   w <- tuneR::normalize(w, unit = "16",level=0.5)
   # Save
   writeWave(w,'temp.wav')
-  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav','theme.mp3'))
+  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',file.path('www','theme.mp3')))
   file.remove('temp.wav')
 }
 
@@ -199,7 +199,7 @@ createAudioLegend <- function(bpm=90,style='major',n=200,rmin=5,rmax=30,pow=10){
   # mix
   final=mix(waves=c(list(i1,i2)),volume=c(0.7,1))
   writeWave(final,'temp.wav')
-  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',paste0(style,'.mp3')))
+  system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',file.path('www',paste0(style,'.mp3'))))
   file.remove('temp.wav')
 }
 
@@ -340,8 +340,15 @@ plotMap <- function(coord,nom,colorBkg='#011a27',colorMap='#c4dfe6',colorText='#
 
 concatVids <- function(ID){
   lines=paste0('file ',ID,c('_0','_1_P','_2_E','_3_Q'),'.mp4')
+  writeLines(lines,con=file.path('www','temp.txt'))
+  cmd=paste0('cd www;ffmpeg -y -f concat -i temp.txt -c copy ',ID,'.mp4')
+  system(cmd)
+}
+
+concatStations <- function(IDs,vname){
+  lines=paste0('file ',file.path('www',paste0(IDs,'.mp4')))
   writeLines(lines,con='temp.txt')
-  cmd=paste0('ffmpeg -y -f concat -i temp.txt -c copy ',ID,'.mp4')
+  cmd=paste0('ffmpeg -y -f concat -i temp.txt -c copy ',vname,'.mp4')
   system(cmd)
 }
 

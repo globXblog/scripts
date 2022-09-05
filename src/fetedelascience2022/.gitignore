@@ -2,9 +2,8 @@
 *.mp3
 *.mp4
 *.pdf
-*.png
 *.jpg
 *.RData
 temp.txt
-www
-
+www/temp.txt
+*.png

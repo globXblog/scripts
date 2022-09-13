@@ -207,8 +207,8 @@ createAudioLegend <- function(bpm=90,style='major',n=200,rmin=5,rmax=30,pow=10){
 
 plotOneStep <- function(seasonnal,tstep,tmax,what,coord,nom,memory=6,seasons=levels(seasonnal$season),
                         colorLow='#8c510a',colorMid='#f5f5f5',colorHigh='#01665e',colorBkg='#011a27',
-                        # colorLow='#c05805',colorMid='#c4dfe6',colorHigh='#063852',colorBkg='#011a27',
-                        colorLine='#c4dfe6',colorPoint=colorLine,vspace=0.5,ff='Arial'){
+                        colorLine='#c4dfe6',colorPoint=colorLine,vspace=0.5,ff='Arial',revertCol=FALSE){
+  if(revertCol) {cLow=colorHigh;cHigh=colorLow} else {cLow=colorLow;cHigh=colorHigh}
   frMap = map_data("world") %>% filter(region=='France')
   n=NROW(seasonnal)
   # trend
@@ -220,7 +220,7 @@ plotOneStep <- function(seasonnal,tstep,tmax,what,coord,nom,memory=6,seasons=lev
                    paste0(ifelse(changePct>0,'En hausse de ','En baisse de '),round(abs(changePct)),'%'),
                    'Pas de changement significatif')
   changeTxt=paste0(changeTxt,' sur la période ',min(annual$year),'-',max(annual$year))
-  changeCol=ifelse(isSignif,ifelse(changePct>0,colorHigh,colorLow),colorPoint)
+  changeCol=ifelse(isSignif,ifelse(changePct>0,cHigh,cLow),colorPoint)
   changeAlpha=ifelse(tstep<n,0,( (tstep-n)/(tmax-n) )^0.75)
   changesize=ifelse(isSignif,16,14)
   yearAlpha=ifelse(tstep<n,0.15,0.15*( (tmax-tstep)/(tmax-n) )^2)
@@ -293,13 +293,13 @@ plotOneStep <- function(seasonnal,tstep,tmax,what,coord,nom,memory=6,seasons=lev
     annotate('text',label="Anomalies saisonnières",x=xlim[1],y=0,
              color=colorLine,size=9,angle=90,family=ff,vjust=-1)+
     geom_segment(data=arrowData[1,],aes(x=x,y=y,xend=xend,yend=yend),
-                 color=colorspace::lighten(colorLow,0.4),arrow=arrow(type='closed'),size=1)+
+                 color=colorspace::lighten(cLow,0.4),arrow=arrow(type='closed'),size=1)+
     geom_segment(data=arrowData[2,],aes(x=x,y=y,xend=xend,yend=yend),
-                 color=colorspace::lighten(colorHigh,0.4),arrow=arrow(type='closed'),size=1)+
+                 color=colorspace::lighten(cHigh,0.4),arrow=arrow(type='closed'),size=1)+
     annotate('text',label="Moins que\nd'habitude",x=xlim[1],y=-0.5,family=ff,
-             color=colorspace::lighten(colorLow,0.4),size=7,angle=90,vjust=1)+
+             color=colorspace::lighten(cLow,0.4),size=7,angle=90,vjust=1)+
     annotate('text',label="Plus que\nd'habitude",x=xlim[1],y=0.5,family=ff,
-             color=colorspace::lighten(colorHigh,0.4),size=7,angle=90,vjust=1)
+             color=colorspace::lighten(cHigh,0.4),size=7,angle=90,vjust=1)
   if(tstep<=0) return(g0)
   
   # Restrict DF to requested period (1 to tstep)
@@ -313,9 +313,9 @@ plotOneStep <- function(seasonnal,tstep,tmax,what,coord,nom,memory=6,seasons=lev
     geom_point(data=dlast,aes(time,svalue,alpha=time,size=time),color=colorPoint)
   # Bottom part: anomalies
   g=g+geom_col(data=d1toT[d1toT$season %in% seasons,],aes(time,sanom,fill=sanom))+
-    scale_fill_gradient2(low=colorLow,mid=colorMid,high=colorHigh,limits=c(-1,1))+
+    scale_fill_gradient2(low=cLow,mid=colorMid,high=cHigh,limits=c(-1,1))+
     geom_point(data=dlast,aes(time,sanom,alpha=time,size=time,color=anom))+
-    scale_color_gradient2(low=colorLow,mid=colorMid,high=colorHigh,limits=c(-1,1))
+    scale_color_gradient2(low=cLow,mid=colorMid,high=cHigh,limits=c(-1,1))
   
   return(g)  
 }

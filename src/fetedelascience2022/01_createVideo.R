@@ -5,10 +5,10 @@ resfactor=2 # Resolution factor (0.5 poor, 1 OKish, 2 good quality)
 intro=0 # Number of years before first note is played
 outro=10 # Number of years after last note is played
 doIntroVid=TRUE # if FALSE, intro videos are skipped 
-doMainVid=FALSE # if FALSE, main video are skipped
+doMainVid=TRUE # if FALSE, main video are skipped
 instdir='/home/benjamin.renard/BEN/GitHub/sequenceR/instruments' # Instrument directory
 # NOTE: You need to create the instruments and to change instdir to the directory where they're stored.
-#       This can be doned with the package sequenceR (https://github.com/benRenard/sequenceR)
+#       This can be done with the package sequenceR (https://github.com/benRenard/sequenceR)
 #       1. Download sample packs following the instructions in subfolders of data-raw/samplePacks
 #       2. Run the script data-raw/samplepack2instrument.R
 
@@ -21,8 +21,11 @@ bps=bpm/60 # beat per second
 tps=bps*4 # time step per second (here time step = 16th note i.e. 1/4 of a beat)
 spt=1/tps # seconds per time step
 
-for(k in 202:202){ # Loop on stations
-  for (j in 1:3){ # Loop on variables
+load('Q_SAFRAN.RData') # just to get sites dataframe
+set.seed(123456); ix=sample(1:NROW(sites)) # randomized order
+
+for(k in ix[1:12]){ # Loop on stations
+  for (j in 2:2){ # Loop on variables
     # get style, datasets, output file name etc.
     what=c('P','E','Q')[j]
     style=switch(what,Q='oriental',E='minor',P='major')
@@ -40,11 +43,12 @@ for(k in 202:202){ # Loop on stations
       createSound(seasonnal,ID,fname,normalizeAnom,style,bpm,seasons,t0=intro*4*spt)
       
       # CREATE MAIN VIDEO ----
+      revert=(what=='E')
       makeplot <- function(){
         tmin=1-intro*4
         tmax=NROW(seasonnal)+outro*4
         for(tstep in tmin:tmax){
-          g=plotOneStep(seasonnal,tstep,tmax,what,coord,nom,seasons=seasons)
+          g=plotOneStep(seasonnal,tstep,tmax,what,coord,nom,seasons=seasons,revertCol=revert)
           print(g)
         }
       }
@@ -78,4 +82,3 @@ for(k in 202:202){ # Loop on stations
   # FINAL CONCATENATION INTRO + 3 VARS ----
   concatVids(ID)
 }
-  

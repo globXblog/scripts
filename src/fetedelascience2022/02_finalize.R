@@ -42,10 +42,12 @@ DF$sign=1;DF$sign[DF$trend<0]=-1
 lev=paste0('\n',levels(DF$variable))
 DF$variable=factor(paste0('\n',DF$variable),levels=lev)
 zlim=max(abs(DF$trend))*c(-1,1)
-ltxt=paste('Évolution sur la période',period[1],'-',period[length(period)],'[%]')
+ltxt=paste('Évolution sur la période',period[1],'-',period[length(period)],'\n',
+           '\u2190 plus sec                      plus humide \u2192  ')
 pal=RColorBrewer::brewer.pal(11,'BrBG')
 br=round(seq(-70,70,length.out = ncolors+1))
 DF=arrange(DF,abs(trend))
+DF$trend[DF$variable=='\nÉvapotranspiration potentielle']=-1*DF$trend[DF$variable=='\nÉvapotranspiration potentielle']
 
 g0=ggplot()+
   geom_polygon(data=frMap,aes(long,lat,group=group),fill=colorMap,alpha=0.15)+
@@ -56,7 +58,7 @@ g0=ggplot()+
         legend.text = element_text(color=colorTxt,size=12),
         strip.text = element_text(color=colorTxt,size=18,vjust=1.5))
 g=g0+geom_point(data=DF,aes(lon,lat,fill=trend,shape=factor(sign),size=abs(trend)),alpha=0.8)+
-  scale_fill_stepsn(ltxt,colors=pal,breaks=br,limits=zlim)+
+  scale_fill_stepsn(ltxt,colors=pal,breaks=br,limits=zlim,labels=paste0(abs(br),'%'))+
   # scale_fill_distiller(ltxt,palette='BrBG',direction=1,limits=zlim)+
   # scale_shape_manual(values=c('triangle down filled','circle filled','triangle filled'),guide=NULL)+
   # scale_shape_manual(values=c('triangle down filled','triangle filled'),guide=NULL)+
@@ -67,7 +69,8 @@ g=g0+geom_point(data=DF,aes(lon,lat,fill=trend,shape=factor(sign),size=abs(trend
   guides(fill = guide_colourbar(direction='horizontal',title.position='top',title.hjust=0.5,
                                 barwidth=unit(4,'in'),frame.colour=colorTxt,ticks=FALSE))
 
-pdf(file='trends.pdf',height=5,width=11,useDingbats=FALSE)
+cairo_pdf(file='trends.pdf',height=5,width=11)
+# pdf(file='trends.pdf',height=5,width=11,useDingbats=FALSE)
 g
 dev.off()
 

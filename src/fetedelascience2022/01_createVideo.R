@@ -23,9 +23,9 @@ spt=1/tps # seconds per time step
 
 load('Q_SAFRAN.RData') # just to get sites dataframe
 set.seed(123456); ix=sample(1:NROW(sites)) # randomized order
-
-for(k in ix[1:12]){ # Loop on stations
-  for (j in 2:2){ # Loop on variables
+  
+for(k in ix){ # Loop on stations 
+  for (j in 1:3){ # Loop on variables
     # get style, datasets, output file name etc.
     what=c('P','E','Q')[j]
     style=switch(what,Q='oriental',E='minor',P='major')

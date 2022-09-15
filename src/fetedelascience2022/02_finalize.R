@@ -80,7 +80,7 @@ system('pdftoppm trends.pdf trends -jpeg -rx 300 -ry 300')
 load('Q_SAFRAN.RData')
 set.seed(123456)
 ix=sample(1:NROW(sites))
-# concatStations(sites$ID[ix],'FeteDeLaScience2022_full')
+concatStations(sites$ID[ix],'FeteDeLaScience2022_full')
 nvid=12
 frMap = map_data("world") %>% filter(region=='France')
 g0=ggplot(frMap)+geom_polygon(aes(long,lat,group=group))+theme_void()+coord_map()

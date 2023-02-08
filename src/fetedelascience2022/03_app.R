@@ -16,7 +16,7 @@ helpPanel <- modalDialog(
   #        Pour rouvrir ce panneau plus tard, cliquez sur le bouton d'information en haut à droite."),
   tags$p("Pour rouvrir ce panneau plus tard, cliquez sur le bouton d'information en haut à droite."),
   tags$p("Conception: Chloé Le Bescond et Benjamin Renard,",
-         HTML("<a href='https://globxblog.inrae.fr'> https://globxblog.inrae.fr </a>")),
+         HTML("<a href='https://globxblog.github.io'> https://globxblog.github.io </a>")),
   tags$img(src = "EU.png",width="50%"),
   easyClose = TRUE,
   footer =modalButton("Fermer")

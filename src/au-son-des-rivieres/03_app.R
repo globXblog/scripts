@@ -15,7 +15,7 @@ helpPanel <- modalDialog(
   tags$p("Le schéma ci-dessous explique les séries visualisées ainsi que leur association avec un instrument de musique.
          Pour rouvrir ce panneau plus tard, cliquez sur le bouton d'information en haut à droite."),
   tags$p("Conception: Chloé Le Bescond et Benjamin Renard,",
-         HTML("<a href='https://globxblog.inrae.fr'> https://globxblog.inrae.fr </a>")),
+         HTML("<a href='https://globxblog.github.io'> https://globxblog.github.io </a>")),
   tags$img(src = "helpPanel_fr.png",width="100%"),
   easyClose = TRUE,
   footer =modalButton("Fermer")

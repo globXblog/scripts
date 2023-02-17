@@ -107,6 +107,66 @@ getGuitar <- function(bpm,ff=1,f=0.8,m=0.5,p=0.3,random_tim=0.02,random_vol=0.02
   return(w)
 }
 
+# Clave ---------------
+getClave <- function(bpm,f=0.8,m=0.8,p=0.8,random_tim=0.02,random_vol=0.02){
+  if(file.exists('clave.wav')){
+    w=readWave('clave.wav')
+  } else {
+    load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/percussionFWS.RData')
+    percu=percussionFWS
+    tp4=1/(bpm/60)
+    tp16=tp4/4
+    t0=8*tp4
+    # 3-2 clave
+    nT=5*36
+    not=rep('claves',nT)
+    vol=rep(c(f,m,m,p,f),length.out=nT)*rbeta(nT,1/random_vol,1)
+    dur=rep(c(3*tp16,4*tp16,3*tp16,2*tp16,4*tp16),length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=tim;VOL=vol;NOT=not
+    # 2-3 clave
+    nT=5*16
+    t0=t0+2*tp16
+    not=rep('claves',nT)
+    vol=rep(c(m,f,m,f,m),length.out=nT)*rbeta(nT,1/random_vol,1) 
+    dur=rep(c(2*tp16,4*tp16,3*tp16,3*tp16,4*tp16),length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Repeat
+    TIM=c(TIM,t0-2*tp16+TIM);VOL=c(VOL,VOL);NOT=c(NOT,NOT)
+    TIM=TIM+rnorm(length(TIM),sd=tp16*random_tim)
+    w=play.instrument(percu,notes=NOT,time=TIM,volume=VOL,nmax=20*10^6)
+    writeWave(w,'clave.wav')
+  }
+  return(w)
+}
+
+# Bell ---------------
+getBell <- function(bpm,ff=1,f=0.8,m=0.5,p=0.3,random_tim=0.02,random_vol=0.02){
+  if(file.exists('bell.wav')){
+    w=readWave('bell.wav')
+  } else {
+    load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/percussionFWS.RData')
+    percu=percussionFWS
+    tp4=1/(bpm/60)
+    tp16=tp4/4
+    t0=38*4*tp4
+    nT=12*8
+    not=rep('cowbell3',nT)
+    vol=rep(c(f,     f,     p,   m,   f,   ff,    p,   m,   f,   ff,    m,   m),length.out=nT)*rbeta(nT,1/random_vol,1)
+    dur=rep(c(2*tp16,2*tp16,tp16,tp16,tp16,2*tp16,tp16,tp16,tp16,2*tp16,tp16,tp16),length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=tim;VOL=vol;NOT=not
+    # Repeat
+    t0=t0+8*4*tp4
+    TIM=c(TIM,t0+TIM);VOL=c(VOL,VOL);NOT=c(NOT,NOT)
+    TIM=TIM+rnorm(length(TIM),sd=tp16*random_tim)
+    w=play.instrument(percu,notes=NOT,time=TIM,volume=VOL,nmax=20*10^6)
+    writeWave(w,'bell.wav')
+  }
+  return(w)
+}
+
 # Q and P ---------------
 getX <- function(variable,bpm,intro,minRP=100,maxRP=1000){
   if(file.exists(paste0(variable,'left.wav'))){

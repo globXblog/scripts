@@ -1,4 +1,5 @@
-library(ggplot2);library(dplyr);library(sequenceR)
+library(ggplot2);library(dplyr);library(sequenceR);library(av)
+library(BFunk)
 
 # Guitar ---------------
 getGuitar <- function(bpm,ff=1,f=0.8,m=0.5,p=0.3,random_tim=0.02,random_vol=0.02){

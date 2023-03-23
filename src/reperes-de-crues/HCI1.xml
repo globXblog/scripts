@@ -1,0 +1,5280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<score-partwise version="3.1">
+  <part-list>
+    <score-part id="P1">
+      <part-name>P1</part-name>
+    </score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="32">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="44">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="39">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="40">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="36">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="39">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="2">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="26">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="57">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="75">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="62">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="45">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="76">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="78">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="30">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="30">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="3">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="35">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="77">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="90">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mf/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="41">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="60">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="39">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="36">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="51">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="70">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="45">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="4">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="29">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="30">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="31">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="107">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <f/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="87">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mf/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="33">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="46">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="40">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="57">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="83">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mf/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="5">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="57">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="50">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="56">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="47">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="44">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="31">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="6">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="44">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="43">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="57">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="48">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="32">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="42">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="7">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="28">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="66">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="31">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="34">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="37">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="32">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="49">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="31">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="8">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="26">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="64">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="47">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="9">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="65">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="41">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="42">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="10">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="36">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="61">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="30">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="44">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="11">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="28">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="50">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="44">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="71">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="77">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="72">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="12">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="24">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="56">
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="79">
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="13">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="34">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="36">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="21">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="14">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="26">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="36">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="30">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="15">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="42">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="37">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="27">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="59">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="34">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="101">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <f/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="16">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="25">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="17">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="106">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <f/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="30">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="94">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mf/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="18">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="25">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="51">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="56">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="78">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="19">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="31">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="37">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="21">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="20">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="70">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <mp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="37">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="32">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="21">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="21">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="21">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="22">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="29">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="23">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="21">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="33">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="60">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="31">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="35">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="24">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="24">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="49">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="25">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="28">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="30">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="26">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="22">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="27">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="25">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="23">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>C</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="24">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="28">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="22">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="30">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="33">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="29">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="25">
+        <pitch>
+          <step>G</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="31">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="30">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+    </measure>
+    <measure number="31">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="22">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="start"/>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="start"/>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="22">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <tie type="stop"/>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+          <tied type="stop"/>
+        </notations>
+      </note>
+      <note dynamics="52">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <p/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="21">
+        <pitch>
+          <step>B</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="31">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="26">
+        <pitch>
+          <step>A</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+      <note dynamics="31">
+        <pitch>
+          <step>E</step>
+          <alter>0</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <pp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+    <measure number="32">
+      <attributes>
+        <divisions>96</divisions>
+        <key>
+          <fifths>0</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>10</beats>
+          <beat-type>8</beat-type>
+        </time>
+      </attributes>
+      <note dynamics="24">
+        <pitch>
+          <step>D</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>48</duration>
+        <type>eighth</type>
+        <notations>
+          <dynamics>
+            <ppp/>
+          </dynamics>
+        </notations>
+      </note>
+    </measure>
+  </part>
+</score-partwise>

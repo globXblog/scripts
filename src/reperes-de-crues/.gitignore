@@ -1,0 +1,9 @@
+*.wav
+*.mp3
+*.mp4
+*.RData
+*.png
+anim_*
+*mscz*
+.mscbackup
+

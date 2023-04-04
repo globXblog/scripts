@@ -6,4 +6,7 @@
 anim_*
 *mscz*
 .mscbackup
-
+data
+reconstructions.txt
+HydroRIVERS_v10_eu_shp
+*.pdf

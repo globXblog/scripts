@@ -2,51 +2,45 @@ library(ggplot2);library(patchwork);library(dplyr);library(av)
 library(sf);library(rnaturalearth)
 library(BFunk) # https://github.com/benRenard/BFunk
 
-bpm=120
-intro=10
-outro=60
-resfactor=3
+# Animation properties
+bpm=120 # Tempo
+intro=10  # number of silent 8th-notes before starting
+outro=60 # number of silent 8th-notes for finishing
+resfactor=3 # resolution factor
 
-#colors
+# Colors and sizes
 cmap='gray96'
 criver='#000050'
-csite='darkgray'
 csiteActive='#16253D'
 cmark='#ff7407'
 cstation='#16253D'
 cstationActive='#ff7407'
-cflood='#ff7407'
 cHCI='#16253D'
 cpoint='#ff7407'
 smallDot=resfactor*2
 largeDot=resfactor*4
 hugeDot=resfactor*8
 stitle=resfactor*26
+scaption=0.6*stitle
 smedium=resfactor*20
 ssmall=resfactor*14
 syear=resfactor*18
 ssegment=resfactor*1
 
 # --- READ DATA ---- 
-HCI=read.table('HCIs.csv',header=TRUE)
+HCI=read.table('HCIs_v2.csv',header=TRUE)
 # Data read below can be downloaded at https://doi.org/10.5281/zenodo.6793500
 sites=read.table(file.path('data','sites.txt'),header=TRUE)
 marks=read.table(file.path('data','marksAtSites.txt'),header=TRUE)
 stations=read.table(file.path('data','stations.txt'),header=TRUE)
 peaks=read.table(file.path('data','peaksAtStations.txt'),header=TRUE)
 reconstruct=read.table('reconstructions.txt',header=TRUE)
-# France
+# France map
 France=ne_countries(country="France",scale='large',type='map_units',returnclass='sf') %>%
   filter(geounit=='France')
-# Rivers - data from HYDROSHEDS, https://www.hydrosheds.org/products/hydrorivers
+# Rivers - data from HYDROSHEDS, downloaded at https://www.hydrosheds.org/products/hydrorivers
 rivers=read_sf(dsn = 'HydroRIVERS_v10_eu_shp', layer = 'HydroRIVERS_v10_eu') %>% 
   filter(ORD_STRA>1) %>%st_intersection(France)
-
-# Add empirical return period to peaks
-peaks=peaks %>% group_by(ID) %>% mutate(rank=rank(amax),n=n(),RP=1/(1-(rank-0.5)/n))
-# rearrange HCIs
-HCIs=rbind(data.frame(time=HCI$time,val=HCI$HCI1,u=HCI$uHCI1,component='HCI1'),
-           data.frame(time=HCI$time,val=HCI$HCI2,u=HCI$uHCI2,component='HCI2'))
 
 # base plots and maps
 g0=ggplot(rivers) +
@@ -56,26 +50,39 @@ g0=ggplot(rivers) +
   theme_void()
 
 g0marks=g0+scale_linewidth(range=c(0.2,0.5))+
-  labs(title='Flood marks')+
-  theme(plot.title=element_text(size=stitle))
+  labs(title=' Flood marks')+
+  theme(plot.title=element_text(size=stitle,vjust=0))
 
 g0peaks=g0+scale_linewidth(range=c(0.2,0.5))+
   geom_point(data=stations,aes(lon,lat),size=smallDot,shape=21,color='gray30',fill=cstation)+
   labs(title='Active stations')+
-  theme(plot.title=element_text(size=stitle))
+  theme(plot.title=element_text(size=stitle,vjust=0))
 
-g0HCI=ggplot(HCIs)+
-  geom_ribbon(aes(x=time,ymin=val-0.5*u,ymax=val+0.5*u),fill=cHCI,color=NA,alpha=0.2)+
+g0HCI=ggplot(HCI)+
+  geom_ribbon(aes(x=time,ymin=lower,ymax=upper),fill=cHCI,color=NA,alpha=0.2)+
   facet_wrap(vars(component),ncol=1)+
-  labs(title='Hidden Climate Indices')+
-  coord_cartesian(ylim=c(-3,3))+
-  theme_void()+theme(strip.text=element_blank(),plot.title=element_text(size=stitle))
+  labs(title=' Hidden Climate Indices')+
+  coord_cartesian(ylim=c(-3,3.5))+
+  theme_void()+
+  theme(strip.text=element_blank(),plot.title=element_text(size=stitle,vjust=0))
 
 g0rec=g0+coord_sf(expand=FALSE)+
-  labs(title='Probability that a 10-year flood occured')+
+  labs(title=' Probability that a 10-year flood occured',
+       caption=paste0(' Station data: https://www.hydro.eaufrance.fr',' \n',
+                      ' Flood marks data: https://www.reperesdecrues.developpement-durable.gouv.fr'))+
   theme(legend.position=c(0.12,0.35),legend.title=element_text(size=smedium),legend.text=element_text(size=ssmall),
         legend.key.width=unit(0.02,'npc'),legend.key.height=unit(0.04,'npc'),
-        plot.title=element_text(size=stitle))
+        plot.title=element_text(size=stitle,vjust=0),
+        plot.caption=element_text(size=scaption,vjust=3,hjust=0))
+
+# Arrows
+a1=ggplot()+theme_void()+xlim(0,1)+ylim(0,1)+
+  geom_curve(aes(x=0.5,y=1,xend=0.5,yend=0),linewidth=2,curvature=-0.5,
+             arrow=arrow(length=unit(0.1, "npc"),type="closed"))
+
+a2=ggplot()+theme_void()+xlim(0,1)+ylim(0,1)+
+  geom_curve(aes(x=1,y=0.5,xend=0,yend=0.5),linewidth=2,curvature=-0.5,
+             arrow=arrow(length=unit(0.1, "npc"),type="closed"))
 
 from=min(HCI$time)-outro
 upto=max(HCI$time)+intro
@@ -98,9 +105,9 @@ for(year in ylist){
     
   # First two HCIs
   gHCI=g0HCI+
-    geom_ribbon(data=HCIs %>% filter(time<=now),aes(x=time,ymin=val-0.5*u,ymax=val+0.5*u),fill=cHCI,color=NA)+
-    geom_segment(data=HCIs %>% filter(time==now),aes(x=time,xend=time,y=val-0.5*u,yend=val+0.5*u),color=cpoint,linewidth=ssegment)+
-    geom_point(data=HCIs %>% filter(time==now),aes(x=time,y=val),shape=21,color=cpoint,fill=cpoint,size=largeDot)+
+    geom_ribbon(data=HCI %>% filter(time<=now),aes(x=time,ymin=lower,ymax=upper),fill=cHCI,color=NA)+
+    geom_segment(data=HCI %>% filter(time==now),aes(x=time,xend=time,y=lower,yend=upper),color=cpoint,linewidth=ssegment)+
+    geom_point(data=HCI %>% filter(time==now),aes(x=time,y=median),shape=21,color=cpoint,fill=cpoint,size=largeDot)+
     facet_wrap(vars(component),ncol=1)
   
   # reconstructions
@@ -112,12 +119,19 @@ for(year in ylist){
     
   design <- "DDBA
              DDCC"
+
+  final=wrap_plots(A=gpeaks,B=gmarks,D=grec,C=gHCI,design=design)+
+    inset_element(a1,top=0.58,bottom=0.4,left=1.5,right=1.6)+
+    inset_element(a2,top=0.3,bottom=0.2,left=0.85,right=1.05)
+  
   png(filename=fname,width=(1280*resfactor), height=(720*resfactor), res=72)
-  print(wrap_plots(A=gpeaks,B=gmarks,D=grec,C=gHCI,design=design))
+  print(final)
   dev.off()
 }
 
 fps=(bpm*2)/60
 flist=list.files("anim_im", full.names=TRUE)
-av_encode_video(input=rev(flist),audio='ReperesDeCrues_backward.wav',output='ReperesDeCrues.mp4',framerate=fps)
+fadeFilter <- paste0("fade=t=in:st=0:d=", intro/fps, ":alpha=0", ", fade=t=out:st=", length(flist)/fps-outro/fps, ":d=", outro/fps, ":alpha=0")
+av_encode_video(input=rev(flist),audio='ReperesDeCrues_backward.wav',output='ReperesDeCrues.mp4',framerate=fps,
+                vfilter=fadeFilter)
  

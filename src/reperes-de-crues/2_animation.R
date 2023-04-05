@@ -20,7 +20,7 @@ cpoint='#ff7407'
 smallDot=resfactor*2
 largeDot=resfactor*4
 hugeDot=resfactor*8
-stitle=resfactor*26
+stitle=resfactor*25
 scaption=0.6*stitle
 smedium=resfactor*20
 ssmall=resfactor*14
@@ -41,23 +41,25 @@ France=ne_countries(country="France",scale='large',type='map_units',returnclass=
 # Rivers - data from HYDROSHEDS, downloaded at https://www.hydrosheds.org/products/hydrorivers
 rivers=read_sf(dsn = 'HydroRIVERS_v10_eu_shp', layer = 'HydroRIVERS_v10_eu') %>% 
   filter(ORD_STRA>1) %>%st_intersection(France)
+# Add empirical return period to peaks
+peaks=peaks %>% group_by(ID) %>% mutate(rank=rank(amax),n=n(),RP=1/(1-(rank-0.5)/n))
 
-# base plots and maps
+# ---- BASE PLOTS AND MAPS ----
+# France + rivers
 g0=ggplot(rivers) +
   geom_sf(data=France,fill=cmap)+
   geom_sf(aes(linewidth=ORD_STRA,alpha=ORD_STRA),color=criver,show.legend=FALSE)+
   scale_linewidth(range=c(0.4,1))+scale_alpha(range=c(0.2,1))+
   theme_void()
-
+# Flood marks
 g0marks=g0+scale_linewidth(range=c(0.2,0.5))+
-  labs(title=' Flood marks')+
+  labs(title='Flood marks')+
   theme(plot.title=element_text(size=stitle,vjust=0))
-
+# Peaks at stations
 g0peaks=g0+scale_linewidth(range=c(0.2,0.5))+
-  geom_point(data=stations,aes(lon,lat),size=smallDot,shape=21,color='gray30',fill=cstation)+
-  labs(title='Active stations')+
-  theme(plot.title=element_text(size=stitle,vjust=0))
-
+  labs(title='Floods at hydrometric stations')+
+  theme(plot.title=element_text(size=stitle,vjust=0,hjust=1))
+# HCIs
 g0HCI=ggplot(HCI)+
   geom_ribbon(aes(x=time,ymin=lower,ymax=upper),fill=cHCI,color=NA,alpha=0.2)+
   facet_wrap(vars(component),ncol=1)+
@@ -65,7 +67,7 @@ g0HCI=ggplot(HCI)+
   coord_cartesian(ylim=c(-3,3.5))+
   theme_void()+
   theme(strip.text=element_blank(),plot.title=element_text(size=stitle,vjust=0))
-
+# Reconstructions
 g0rec=g0+coord_sf(expand=FALSE)+
   labs(title=' Probability that a 10-year flood occured',
        caption=paste0(' Station data: https://www.hydro.eaufrance.fr',' \n',
@@ -74,16 +76,15 @@ g0rec=g0+coord_sf(expand=FALSE)+
         legend.key.width=unit(0.02,'npc'),legend.key.height=unit(0.04,'npc'),
         plot.title=element_text(size=stitle,vjust=0),
         plot.caption=element_text(size=scaption,vjust=3,hjust=0))
-
 # Arrows
 a1=ggplot()+theme_void()+xlim(0,1)+ylim(0,1)+
   geom_curve(aes(x=0.5,y=1,xend=0.5,yend=0),linewidth=2,curvature=-0.5,
              arrow=arrow(length=unit(0.1, "npc"),type="closed"))
-
 a2=ggplot()+theme_void()+xlim(0,1)+ylim(0,1)+
   geom_curve(aes(x=1,y=0.5,xend=0,yend=0.5),linewidth=2,curvature=-0.5,
              arrow=arrow(length=unit(0.1, "npc"),type="closed"))
 
+# ---- CREATE IMAGES ----
 from=min(HCI$time)-outro
 upto=max(HCI$time)+intro
 ylist=upto:from
@@ -101,7 +102,9 @@ for(year in ylist){
   # peaks
   df=peaks %>% filter(hydroYear==now)%>% left_join(stations,by='ID')
   gpeaks=g0peaks+
-    geom_point(data=df,aes(lon,lat),shape=21,color='gray30',fill=cstationActive,size=largeDot)
+    geom_point(data=df,aes(lon,lat,fill=RP,size=RP),shape=21,color='gray30')+
+    scale_fill_gradient(trans='log10',low=cstation,high=cstationActive,limits=c(1,205),guide=NULL)+
+    scale_size(limits=c(1,205),range=c(smallDot,largeDot),guide=NULL)
     
   # First two HCIs
   gHCI=g0HCI+
@@ -129,6 +132,7 @@ for(year in ylist){
   dev.off()
 }
 
+# ---- CREATE VIDEO ----
 fps=(bpm*2)/60
 flist=list.files("anim_im", full.names=TRUE)
 fadeFilter <- paste0("fade=t=in:st=0:d=", intro/fps, ":alpha=0", ", fade=t=out:st=", length(flist)/fps-outro/fps, ":d=", outro/fps, ":alpha=0")

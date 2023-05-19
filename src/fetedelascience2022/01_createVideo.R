@@ -15,7 +15,7 @@ instdir='/home/benjamin.renard/BEN/GitHub/sequenceR/instruments' # Instrument di
 # PRELIMINARIES ----
 seasons=c('DJF','MAM','JJA','SON') # Definition of seasons
 source('00_funk.R') # Load useful functions
-getQRcode('https://globxblog.inrae.fr/fetedelascience2022/') # Create QRcode image
+getQRcode('https://globxblog.github.io/fetedelascience2022/') # Create QRcode image
 if(!exists('inst')) inst=loadInstruments(instdir)
 bps=bpm/60 # beat per second
 tps=bps*4 # time step per second (here time step = 16th note i.e. 1/4 of a beat)

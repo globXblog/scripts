@@ -1,0 +1,10 @@
+*.wav
+*.mp3
+*.mp4
+*.pdf
+*.jpg
+*.RData
+*.png
+*.xml
+OLD_*
+getData.R

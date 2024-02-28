@@ -18,11 +18,12 @@ four=four %>% left_join(data.frame(station=stations,
                         by='station')
 
 wcount=getCounting(bpm=bpm,compt=compt)
-wcymbal=wbass=wpiano=vector('list',length(years))
+wcymbal=wbass=wkick=wpiano=vector('list',length(years))
 for(i in 1:length(years)){
   type=types[i]
   currentYear=years[i]
-  
+
+  wkick[[i]]=getDrumKick(bpm=bpm,tstart=t0,intro=intro,type=type)
   wcymbal[[i]]=getCymbal(bpm=bpm,tstart=t0,intro=intro,type=type)
   wbass[[i]]=getBass(bpm=bpm,tstart=t0,intro=intro,type=type)
   wpiano[[i]]=getPiano(dat=four %>% filter(year==currentYear,
@@ -31,6 +32,7 @@ for(i in 1:length(years)){
   t0=t0 + intro*7*tp16 + (365+leap[i])*tp16
 }
 
+allKick=mix(wkick)
 allCymbals=mix(wcymbal)
 allBass=mix(wbass)
 # final=mix(list(wcount,allCymbals,allBass),
@@ -39,9 +41,9 @@ allBass=mix(wbass)
 
 allLeft=mix(list(wpiano[[1]]$left,wpiano[[2]]$left,wpiano[[3]]$left,wpiano[[4]]$left))
 allRight=mix(list(wpiano[[1]]$right,wpiano[[2]]$right,wpiano[[3]]$right,wpiano[[4]]$right))
-final=mix(list(wcount,allCymbals,allBass,allLeft,allRight),
-          volume=c(0.4,0.8,1,0.7,0.7),
-          pan=c(0,0,0,-1,1))
+final=mix(list(wcount,allKick,allCymbals,allBass,allLeft,allRight),
+          volume=c(0.4,0.7,0.8,1,0.7,0.7),
+          pan=c(0,0,0,0,-1,1))
 
 writeWave(final,'temp.wav')
 system(paste('cd',getwd(),'&& ffmpeg -y -i temp.wav',paste0('backing','.mp3')))

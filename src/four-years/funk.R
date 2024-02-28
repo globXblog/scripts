@@ -430,15 +430,20 @@ getCymbal <- function(bpm,tstart,intro,type,isLeap=FALSE,ff=0.6,f=0.4,m=0.2,p=0.
 getDrumKick <- function(bpm,tstart,intro,type,isLeap=FALSE,ff=1,f=0.8,m=0.6,p=0.3,random_tim=0.02,random_vol=0.02){
   tp4=1/(bpm/60)
   tp16=tp4/4
+  t0=tstart
   if(type=='major'){
-    
+    vol=c(rep(c(0,m, m,p),intro/4),0,m,p, m,m,m,p, m,m, m,m, m,m,m,p, m,m, m,m,m,p, m,m, m,m,m,p, m,m,p,m,m,m,p,m,m,m,p,m,m,p,m,m, m,m,m,p,m,m, m,p,m);nT=length(vol)
+    dur=c(rep(c(7,11,1,9),intro/4),7,7,21,7,4,1,16,7,21,7,21,7,4,1,16,7,21,7,4,1,16,7,21,7,4,1,9, 4,1,2,7,4,1,2,7,4,1,2,4,1,2,7,14,7,4,1,2,7,14,1,6,8+isLeap)*tp16
   } else {
- 
+    vol=c(rep(c(0,m, m,p),intro/4),m,p, m,m,p, m,m,p, m,m,p,        m, m,m, m,m, m,m,m,p,p,m,p, m,m,p,m,m,m,m,m,m,m,m,m,p,p,m,p,m,p,p,m,p,m,m,p,m,p,m,p,m,p,m,p,m,m,p,m, m,p,m,m,p,m,m,p,m,m,p,m);nT=length(vol)
+    dur=c(rep(c(7,11,1,9),intro/4),1,10,5,1,10,4,1,10,5,1,11+isLeap,11,3,11,6,11,3,7,7,1,1,1,10,3,1,6,8,2,2,5,7,2,5,9,5,3,6,8,6,5,3,6,8,6,6,3,5,3,3,3,5,3,5,1,6,7,1,6,10,2,5,7,2,5,9,2,5,7,2,5,10)*tp16
   }
-  # # avoid slight shift and randomize
-  # TIM=(TIM-0.05)+rnorm(length(TIM),sd=tp16*random_tim)
-  # VOL=VOL*rbeta(length(TIM),1/random_vol,1) 
-  # w=play.instrument(drum,notes=rep('bass',length(TIM)),time=TIM,volume=VOL,nmax=50*10^6,fadein=rep(0,length(TIM)))
-  # writeWave(w,'drumkick.wav')
-  # return(w)
+  foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+  TIM=tim;VOL=vol
+  # avoid slight shift and randomize
+  TIM=(TIM-0.05)+rnorm(length(TIM),sd=tp16*random_tim)
+  VOL=VOL*rbeta(length(TIM),1/random_vol,1)
+  w=play.instrument(drum,notes=rep('bass',length(TIM)),time=TIM,volume=VOL,nmax=50*10^6,fadein=rep(0,length(TIM)))
+  writeWave(w,'drumkick.wav')
+  return(w)
 }

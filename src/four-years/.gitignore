@@ -9,3 +9,5 @@
 OLD_*
 getData.R
 RHN.txt
+toBeRemoved.txt
+00_site_metadata.txt

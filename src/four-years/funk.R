@@ -1,13 +1,13 @@
 library(ggplot2);library(patchwork)
 library(dplyr)
-library(sequenceR);library(av)
+library(sequenceR);library(av);library(tuneR)
 
 load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/pianoSteinway.RData')
-inst=pianoSteinway
+inst=pianoSteinway;rm(pianoSteinway)
 load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/bassStandup.RData')
-bass=bassStandup
+bass=bassStandup;rm(bassStandup)
 load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/drumkitStahl.RData')
-drum=drumkitStahl
+drum=drumkitStahl;rm(drumkitStahl)
 
 # Initial counting ---------------
 getCounting <- function(bpm,compt,tstart=0,ff=0.6,f=0.4,m=0.2,p=0.08,random_tim=0.02,random_vol=0.02){
@@ -29,7 +29,79 @@ getCounting <- function(bpm,compt,tstart=0,ff=0.6,f=0.4,m=0.2,p=0.08,random_tim=
 }
 
 # Piano ---------------
-getPiano <- function(dat,bpm,tstart,intro,type,pitchPar=1,volPar=10){
+getPiano <- function(dat,bpm,tstart,intro,type,pitchPar=0.6,volPar=30,randomness=0.5){
+  tp4=1/(bpm/60)
+  tp16=tp4/4
+  t0=tstart
+  if(type=='major'){
+    # scale=c('E2','B2','E3','Ab3','B3','E4','Ab4','B4','E5','Ab5','B5')
+    scales=list(c('E2','B2'),
+            c('E3','Ab3','B3','Eb4'),
+            c('E4','Gb4','Ab4','B4','Db5','Eb5'),
+            c('E5','Gb5','Ab5','A5','B5','Db6','Eb6','E6'))
+  } else {
+    # scale=c('E2','B2','E3','G3', 'B3','E4', 'G4', 'B4','E5', 'G5','B5')
+    scales=list(c('E2','B2'),
+            c('E3','G3','B3'),
+            c('E4','G4','B4','D5'),
+            c('E5','Gb5','G5','Bb5','B5','Db6','D6','E6'))
+  }
+  nsc=length(scales)
+  wleft=wright=0
+  stations=unique(dat$station)
+  for(s in stations){
+    message(paste0(s))
+    scale=rep('',nsc)
+    for(j in 1:nsc){
+      scale[j]=sample(scales[[j]],1)
+    }
+    DF=dat %>% filter(station==s)
+    nT=NROW(DF)
+    u=(1-pnorm(DF$normalizedQ_smooth))^pitchPar
+    u[1]=0.5 # avoid NA as a first note, any value will work since it's played a volume=0
+    notes=1+round(u*(nsc-1))
+    vol=(1-pnorm(DF$anomaly_smooth))^volPar
+    vol[1:10]=0.1*(0:9)*vol[1:10] # to avoid starting with one huge chord
+    par(mfrow=c(2,1))
+    plot(DF$date,notes,type='l',ylim=c(1,nsc),main=paste0(s,'-',DF$year[1]))
+    plot(DF$date,vol,type='l',col='red',ylim=c(0,1))
+    foo=c(1,diff(notes))
+    
+    mask= (!is.na(foo))&(foo!=0)& vol>0.05
+    mask[is.na(mask)]=FALSE
+    if(sum(mask)>0){
+      time=t0+7*tp16*intro+tp16*((1:nT)-1)[mask]
+      time=time+rnorm(length(time),mean=0,sd=randomness*tp16)
+      time=sort(time)
+      ix=notes[mask]
+      v=vol[mask]
+      wpiano=play.instrument(inst,notes=scale[ix],time=time,volume=v,
+                             fadeout=rep(1,length(time)),
+                             pan=rep(DF$pan[1],length(time)),
+                             nmax=50*10^60)
+    
+      ndiff=length(wleft)-length(wpiano@left)
+      if(ndiff<0){
+        wleft=c(wleft,rep(0,-1*ndiff))
+        wright=c(wright,rep(0,-1*ndiff))
+        pleft=wpiano@left
+        pright=wpiano@right
+      } else {
+        pleft=c(wpiano@left,rep(0,ndiff))
+        pright=c(wpiano@right,rep(0,ndiff))
+      }
+      wleft=wleft+pleft
+      wright=wright+pright
+    }
+  }
+  L=as.Wave(soundSample(wleft))
+  R=as.Wave(soundSample(wright))
+  return(list(left=L,right=R))
+}
+
+
+getMainVoice <- function(pitchData,volData,bpm,tstart,intro,type,
+                         currentYear,pitchPar=1,volPar=2){
   tp4=1/(bpm/60)
   tp16=tp4/4
   t0=tstart
@@ -40,49 +112,39 @@ getPiano <- function(dat,bpm,tstart,intro,type,pitchPar=1,volPar=10){
   }
   nsc=length(scale)
   wleft=wright=0
-  stations=unique(dat$station)
-  for(s in stations){
-    message(paste0(s))
-    DF=dat %>% filter(station==s)
-    nT=NROW(DF)
-    u=(1-pnorm(DF$normalizedQ))^pitchPar
-    notes=1+round(u*(nsc-1))
-    vol=(1-pnorm(DF$anomaly))^volPar
-    vol[1]=0 # to avoid starting with one huge chord
-    par(mfrow=c(2,1))
-    plot(DF$date,notes,type='l',ylim=c(1,nsc),main=s)
-    plot(DF$date,vol,type='l',col='red',ylim=c(0,1))
-    foo=c(1,diff(notes))
-    mask=foo!=0
-    time=t0+7*tp16*intro+tp16*((1:nT)-1)[mask]
-    ix=notes[mask]
-    v=vol[mask]
-    # plot(time,ix,type='h',ylim=c(0,max(notes)))
-    # points(time,v,col='red',pch=19)
-    
-    wpiano=play.instrument(inst,notes=scale[ix],time=time,volume=v,
-                           fadeout=rep(1,length(time)),
-                           pan=rep(DF$pan[1],length(time)),
-                           nmax=50*10^60)
-    
-    ndiff=length(wleft)-length(wpiano@left)
-    if(ndiff<0){
-      wleft=c(wleft,rep(0,-1*ndiff))
-      wright=c(wright,rep(0,-1*ndiff))
-      pleft=wpiano@left
-      pright=wpiano@right
-    } else {
-      pleft=c(wpiano@left,rep(0,ndiff))
-      pright=c(wpiano@right,rep(0,ndiff))
-    }
-    wleft=wleft+pleft
-    wright=wright+pright
+  mask=substr(pitchData$date,1,4)==currentYear
+  pitch=(rescale(pitchData$PC1,1,0)^pitchPar)[mask]
+  nT=NROW(pitch)
+  vol=(rescale(volData$PC1,1,0)^volPar)[mask]
+  plot(pitch,type='l',ylim=c(0,1),main=currentYear);lines(vol,col='red')
+  notes=1+round(pitch*(nsc-1))
+  foo=c(1,diff(notes))
+  mask= (foo!=0)&(!is.na(foo)) & vol>0.01
+  if(sum(mask)==0){mask[1]=TRUE}
+  time=t0+7*tp16*intro+tp16*((1:nT)-1)[mask]
+  ix=notes[mask]
+  v=vol[mask]
+  wpiano=play.instrument(inst,notes=scale[ix],time=time,volume=v,
+                         fadeout=rep(1,length(time)),
+                         nmax=50*10^60)
+  
+  ndiff=length(wleft)-length(wpiano@left)
+  if(ndiff<0){
+    wleft=c(wleft,rep(0,-1*ndiff))
+    wright=c(wright,rep(0,-1*ndiff))
+    pleft=wpiano@left
+    pright=wpiano@right
+  } else {
+    pleft=c(wpiano@left,rep(0,ndiff))
+    pright=c(wpiano@right,rep(0,ndiff))
   }
+  wleft=wleft+pleft
+  wright=wright+pright
+  
   L=as.Wave(soundSample(wleft))
   R=as.Wave(soundSample(wright))
   return(list(left=L,right=R))
 }
-
 # Bass ---------------
 getBass <- function(bpm,tstart,intro,type,isLeap=FALSE,ff=1,f=0.9,m=0.8,p=0.5,random_tim=0.02,random_vol=0.02){
     tp4=1/(bpm/60)

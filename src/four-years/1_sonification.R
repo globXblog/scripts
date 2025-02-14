@@ -33,15 +33,13 @@ wcymbal=wbass=wkick=wpiano=vector('list',length(years))
 for(i in 1:length(years)){
   type=types[i]
   currentYear=years[i]
-  mvol=(master %>% filter(year==years[i]))$vol
-
   wkick[[i]]=getDrumKick(bpm=bpm,tstart=t0,intro=intro,type=type)
   wcymbal[[i]]=getCymbal(bpm=bpm,tstart=t0,intro=intro,type=type)
   wbass[[i]]=getBass(bpm=bpm,tstart=t0,intro=intro,type=type)
   wpiano[[i]]=getPiano(dat=dat %>% filter(year==currentYear,
                                           station %in% unique(dat$station)),
-                                          # station %in% unique(dat$station)[as.integer(seq(1,NROW(stations),length.out=50))]),
-                bpm=bpm,tstart=t0,intro=intro,type=type,volPar=20)
+                                          # station %in% unique(dat$station)[as.integer(seq(1,NROW(stations),length.out=10))]),
+                bpm=bpm,tstart=t0,intro=intro,type=type)
   # wpiano[[i]]=getMainVoice(pitchData,volData,bpm=bpm,tstart=t0,intro=intro,
   #                          type=type,currentYear=currentYear)
   t0=t0 + intro*7*tp16 + (365+leap[i])*tp16
@@ -50,7 +48,7 @@ for(i in 1:length(years)){
 wkick[[i+1]]=play.instrument(drum,'bass',time=t0,fadein=0,nmax=50*10^6)
 wcymbal[[i+1]]=play.instrument(drum,c('ride','splash'),time=c(t0,t0),fadein=c(0,0),nmax=50*10^6)
 wbass[[i+1]]=play.instrument(bass,'E2',time=t0,nmax=50*10^6)
-foo=play.instrument(inst,c('E2','B2','Gb3','B3','E4','A4','E5'),
+foo=play.instrument(inst,c('E2','B2','Gb3','B3','E4','B4','E5'),
                     time=t0+seq(0,0.5,length.out=7),
                     fadeout=rep(Inf,7),nmax=50*10^6)
 wpiano[[i+1]]=list(left=foo,right=foo)
@@ -88,7 +86,7 @@ allBass=allBass %>% applyMaster()
 allLeft=mix(list(wpiano[[1]]$left,wpiano[[2]]$left,wpiano[[3]]$left,wpiano[[4]]$left,wpiano[[5]]$left))
 allRight=mix(list(wpiano[[1]]$right,wpiano[[2]]$right,wpiano[[3]]$right,wpiano[[4]]$right,wpiano[[5]]$right))
 final=mix(list(wcount,allKick,allCymbals,allBass,allLeft,allRight),
-          volume=c(0.6,0.7,0.9,1,0.5,0.5),
+          volume=c(0.5,0.7,0.9,1,0.5,0.5),
           pan=c(0,0,0,0,-1,1))
 
 writeWave(final,'temp.wav')

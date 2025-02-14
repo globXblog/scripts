@@ -36,16 +36,20 @@ getPiano <- function(dat,bpm,tstart,intro,type,pitchPar=0.6,volPar=30,randomness
   if(type=='major'){
     # scale=c('E2','B2','E3','Ab3','B3','E4','Ab4','B4','E5','Ab5','B5')
     scales=list(c('E2','B2'),
-            c('E3','Ab3','B3','Eb4'),
-            c('E4','Gb4','Ab4','B4','Db5','Eb5'),
-            c('E5','Gb5','Ab5','A5','B5','Db6','Eb6','E6'))
+            c('E3','Ab3','B3'),
+            c('E4','Ab4','B4','Eb5'),
+            c('E5','Gb5','A5','B5','Db6','Eb6','E6'))
   } else {
     # scale=c('E2','B2','E3','G3', 'B3','E4', 'G4', 'B4','E5', 'G5','B5')
     scales=list(c('E2','B2'),
             c('E3','G3','B3'),
             c('E4','G4','B4','D5'),
-            c('E5','Gb5','G5','Bb5','B5','Db6','D6','E6'))
+            c('E5','Gb5','G5','B5','Db6','D6','E6'))
   }
+  scales=list(c('E3','B3'),
+              c('E4','B4'),
+              c('E5','B5'),
+              c('E6','B6'))
   nsc=length(scales)
   wleft=wright=0
   stations=unique(dat$station)
@@ -57,25 +61,33 @@ getPiano <- function(dat,bpm,tstart,intro,type,pitchPar=0.6,volPar=30,randomness
     }
     DF=dat %>% filter(station==s)
     nT=NROW(DF)
-    u=(1-pnorm(DF$normalizedQ_smooth))^pitchPar
-    u[1]=0.5 # avoid NA as a first note, any value will work since it's played a volume=0
-    notes=1+round(u*(nsc-1))
+    u=(1-pnorm(DF$anomaly_smooth))^volPar
+    uPitch=(1-pnorm(DF$normalizedQ_smooth))^pitchPar
+    if(is.na(u[1])){u[1]=0.5} # avoid NA as a first note, any value will work since it's played a volume=0
+    inotes=1+round(u*(nsc-1))
     vol=(1-pnorm(DF$anomaly_smooth))^volPar
     vol[1:10]=0.1*(0:9)*vol[1:10] # to avoid starting with one huge chord
     par(mfrow=c(2,1))
-    plot(DF$date,notes,type='l',ylim=c(1,nsc),main=paste0(s,'-',DF$year[1]))
+    plot(DF$date,inotes,type='l',ylim=c(1,nsc),main=paste0(s,'-',DF$year[1]))
     plot(DF$date,vol,type='l',col='red',ylim=c(0,1))
-    foo=c(1,diff(notes))
     
-    mask= (!is.na(foo))&(foo!=0)& vol>0.05
+    # get changing notes
+    foo=c(1,diff(inotes))
+    # get all notes that should be played
+    volThresh=0.4
+    mask= (!is.na(foo))&(foo!=0) & (vol>volThresh)
     mask[is.na(mask)]=FALSE
+    
     if(sum(mask)>0){
       time=t0+7*tp16*intro+tp16*((1:nT)-1)[mask]
       time=time+rnorm(length(time),mean=0,sd=randomness*tp16)
       time=sort(time)
-      ix=notes[mask]
+      ix=inotes[mask]
+      octave=as.integer(uPitch[mask]*6)
+      notes=paste0(c('E','B','E','B')[ix],octave)
       v=vol[mask]
-      wpiano=play.instrument(inst,notes=scale[ix],time=time,volume=v,
+      v=max(v)*((v-volThresh)/(max(v)-volThresh))
+      wpiano=play.instrument(inst,notes=notes,time=time,volume=v,
                              fadeout=rep(1,length(time)),
                              pan=rep(DF$pan[1],length(time)),
                              nmax=50*10^60)

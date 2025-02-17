@@ -8,6 +8,10 @@ load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/bassStandup.RData')
 bass=bassStandup;rm(bassStandup)
 load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/drumkitStahl.RData')
 drum=drumkitStahl;rm(drumkitStahl)
+load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/guitarPhilharmonia.RData')
+guitar=guitarPhilharmonia;rm(guitarPhilharmonia)
+load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/guitarHarmonics.RData')
+guitar$hA4=guitarHarmonics$A4;rm(guitarHarmonics)
 
 # Initial counting ---------------
 getCounting <- function(bpm,compt,tstart=0,ff=0.6,f=0.4,m=0.2,p=0.08,random_tim=0.02,random_vol=0.02){
@@ -34,39 +38,42 @@ getPiano <- function(dat,bpm,tstart,intro,type,pitchPar=0.6,volPar=30,randomness
   tp16=tp4/4
   t0=tstart
   if(type=='major'){
-    # scale=c('E2','B2','E3','Ab3','B3','E4','Ab4','B4','E5','Ab5','B5')
-    scales=list(c('E2','B2'),
-            c('E3','Ab3','B3'),
-            c('E4','Ab4','B4','Eb5'),
-            c('E5','Gb5','A5','B5','Db6','Eb6','E6'))
+    scales=list(c('Eb','E','B'), #E
+                c('Db','E','B'), #A
+                c('Eb','E','B'), #B
+                c('Db','E','B'), #Db
+                c('E','Ab','B'), #Ab
+                c('Eb','Gb','B'),#Gb
+                c('E','Ab','B'), #Ab
+                c('Eb','Gb','B'))#B
   } else {
-    # scale=c('E2','B2','E3','G3', 'B3','E4', 'G4', 'B4','E5', 'G5','B5')
-    scales=list(c('E2','B2'),
-            c('E3','G3','B3'),
-            c('E4','G4','B4','D5'),
-            c('E5','Gb5','G5','B5','Db6','D6','E6'))
+    scales=list(c('E','G','B'),
+                c('E','G','B'),
+                c('Db','G','Bb'),
+                c('C','Gb','A'),
+                c('Eb','Gb','B'),
+                c('E','Gb','Bb'),
+                c('D','Gb','B'),
+                c('D','Gb','B'),
+                c('D','G','B'),
+                c('E','G','A'),
+                c('C','E','G'),
+                c('F','A','B'))
   }
-  scales=list(c('E3','B3'),
-              c('E4','B4'),
-              c('E5','B5'),
-              c('E6','B6'))
-  nsc=length(scales)
+  
+  nsc=length(scales[[1]])
   wleft=wright=0
   stations=unique(dat$station)
   for(s in stations){
     message(paste0(s))
-    scale=rep('',nsc)
-    for(j in 1:nsc){
-      scale[j]=sample(scales[[j]],1)
-    }
     DF=dat %>% filter(station==s)
     nT=NROW(DF)
     u=(1-pnorm(DF$anomaly_smooth))^volPar
     uPitch=(1-pnorm(DF$normalizedQ_smooth))^pitchPar
     if(is.na(u[1])){u[1]=0.5} # avoid NA as a first note, any value will work since it's played a volume=0
-    inotes=1+round(u*(nsc-1))
+    inotes=1+round(u*(nsc-0.5))
     vol=(1-pnorm(DF$anomaly_smooth))^volPar
-    vol[1:10]=0.1*(0:9)*vol[1:10] # to avoid starting with one huge chord
+    vol[1]=0 # to avoid starting with one huge chord
     par(mfrow=c(2,1))
     plot(DF$date,inotes,type='l',ylim=c(1,nsc),main=paste0(s,'-',DF$year[1]))
     plot(DF$date,vol,type='l',col='red',ylim=c(0,1))
@@ -84,7 +91,11 @@ getPiano <- function(dat,bpm,tstart,intro,type,pitchPar=0.6,volPar=30,randomness
       time=sort(time)
       ix=inotes[mask]
       octave=as.integer(uPitch[mask]*6)
-      notes=paste0(c('E','B','E','B')[ix],octave)
+      chords=DF[[type]][mask]
+      notes=rep(NA,sum(mask))
+      for(j in 1:sum(mask)){
+        notes[j]=paste0(scales[[chords[j]]][ix[j]],octave[j])
+      }
       v=vol[mask]
       v=max(v)*((v-volThresh)/(max(v)-volThresh))
       wpiano=play.instrument(inst,notes=notes,time=time,volume=v,
@@ -106,57 +117,12 @@ getPiano <- function(dat,bpm,tstart,intro,type,pitchPar=0.6,volPar=30,randomness
       wright=wright+pright
     }
   }
-  L=as.Wave(soundSample(wleft))
-  R=as.Wave(soundSample(wright))
+
+  L=Wave(left=wleft,right=wleft)
+  R=Wave(left=wright,right=wright)
   return(list(left=L,right=R))
 }
 
-
-getMainVoice <- function(pitchData,volData,bpm,tstart,intro,type,
-                         currentYear,pitchPar=1,volPar=2){
-  tp4=1/(bpm/60)
-  tp16=tp4/4
-  t0=tstart
-  if(type=='major'){
-    scale=c('E2','B2','E3','Ab3','B3','E4','Ab4','B4','E5','Ab5','B5')
-  } else {
-    scale=c('E2','B2','E3','G3', 'B3','E4', 'G4', 'B4','E5', 'G5','B5')
-  }
-  nsc=length(scale)
-  wleft=wright=0
-  mask=substr(pitchData$date,1,4)==currentYear
-  pitch=(rescale(pitchData$PC1,1,0)^pitchPar)[mask]
-  nT=NROW(pitch)
-  vol=(rescale(volData$PC1,1,0)^volPar)[mask]
-  plot(pitch,type='l',ylim=c(0,1),main=currentYear);lines(vol,col='red')
-  notes=1+round(pitch*(nsc-1))
-  foo=c(1,diff(notes))
-  mask= (foo!=0)&(!is.na(foo)) & vol>0.01
-  if(sum(mask)==0){mask[1]=TRUE}
-  time=t0+7*tp16*intro+tp16*((1:nT)-1)[mask]
-  ix=notes[mask]
-  v=vol[mask]
-  wpiano=play.instrument(inst,notes=scale[ix],time=time,volume=v,
-                         fadeout=rep(1,length(time)),
-                         nmax=50*10^60)
-  
-  ndiff=length(wleft)-length(wpiano@left)
-  if(ndiff<0){
-    wleft=c(wleft,rep(0,-1*ndiff))
-    wright=c(wright,rep(0,-1*ndiff))
-    pleft=wpiano@left
-    pright=wpiano@right
-  } else {
-    pleft=c(wpiano@left,rep(0,ndiff))
-    pright=c(wpiano@right,rep(0,ndiff))
-  }
-  wleft=wleft+pleft
-  wright=wright+pright
-  
-  L=as.Wave(soundSample(wleft))
-  R=as.Wave(soundSample(wright))
-  return(list(left=L,right=R))
-}
 # Bass ---------------
 getBass <- function(bpm,tstart,intro,type,isLeap=FALSE,ff=1,f=0.9,m=0.8,p=0.5,random_tim=0.02,random_vol=0.02){
     tp4=1/(bpm/60)
@@ -300,6 +266,223 @@ getBass <- function(bpm,tstart,intro,type,isLeap=FALSE,ff=1,f=0.9,m=0.8,p=0.5,ra
     writeWave(w,'bass.wav')
   return(w)
 }
+
+# Guitar ---------------
+getGuitar <- function(bpm,tstart,intro,type,isLeap=FALSE,ff=1,f=0.9,m=0.8,p=0.5,random_tim=0.02,random_vol=0.02){
+  tp4=1/(bpm/60)
+  tp16=tp4/4
+  t0=tstart
+  # Intro
+  not=rep(c('E2','E4','E4','B3','E3','E4','B3',
+            'B2','E4','E4','B3','E3','E4','B3'),intro/2);nT=length(not)
+  vol=c(m)*rbeta(nT,1/random_vol,1)
+  dur=rep(1,7*intro)*tp16
+  fade=rep(Inf,7*intro)
+  foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+  TIM=tim;VOL=vol;NOT=not;FADE=fade
+  if(type=='major'){
+    # E 
+    not=rep(c('E2','E4','Eb4','B3','E3','Eb4','B3',
+              'B2','E4','Eb4','B3','E3','Eb4','B3'),6);nT=length(not) 
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # A
+    not=rep(c('A2','E4','B3','Db4','Gb3','B3','Db4',
+              'E3','E4','B3','Db4','Gb3','B3','Db4'),4);nT=length(not) 
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    for(k in 1:2){
+      # B
+      not=rep(c('B2','E4','B3','Eb4','Ab3','B3','Eb4',
+                'Gb3','E4','B3','Eb4','Ab3','B3','Eb4'),2);nT=length(not) 
+      vol=c(m)*rbeta(nT,1/random_vol,1)
+      dur=rep(1,nT)*tp16
+      fade=rep(Inf,nT)
+      foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+      TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+      # Db
+      not=rep(c('Db3','E4','B3','Eb4','Ab3','B3','Eb4',
+                'E3','E4','B3','Eb4','Ab3','B3','Eb4'),2);nT=length(not) 
+      vol=c(m)*rbeta(nT,1/random_vol,1)
+      dur=rep(1,nT)*tp16
+      fade=rep(Inf,nT)
+      foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+      TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    }
+    # Ab
+    not=rep(c('Ab2','E4','Eb4','B3','E3','Eb4','B3',
+              'A2','E4','Eb4','B3','E3','Eb4','B3'),3);nT=length(not) 
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # Gb
+    not=rep(c('Gb2','E4','Eb4','B3','Gb3','Eb4','B3',
+              'Gb2','E4','Eb4','B3','Gb3','Eb4','B3'),2);nT=length(not) 
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # Ab
+    not=rep(c('Ab2','E4','Eb4','B3','E3','Eb4','B3',
+              'A2','E4','Eb4','B3','E3','Eb4','B3'),1);nT=length(not) 
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # B
+    not=rep(c('B2','E4','Eb4','B3','Gb3','Eb4','B3',
+              'B2','E4','Eb4','B3','Gb3','Eb4','B3'),1);nT=length(not) 
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # B
+    not=rep(c('B2','E4','E4','B3','Gb3','E4','B3',
+              'B2','E4','E4','B3','Gb3','E4','B3'),1);nT=length(not) 
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # remaining
+    not=ifelse(isLeap,c('Gb3','B2'),c('Gb3'));nT=length(not) 
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+  } else {
+    # January 
+    not=c('E3','G3','B3','G4','E2','A3','B3',
+          'E3','G3','B3','G4','E2','A3','B3','E4','B3',
+          'E3','G3','B3','G4','E2','A3','B3',
+          'E3','G3','B3','G4','E2','A3','B3','A3');nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # February
+    not=c('E3','G3','B3','G4','E2','A3','B3',
+          'E3','G3','B3','G4','E2','A3','B3','E4','B3',
+          'E3','G3','B3','G4','E2','A3','B3',
+          'E3','G3','B3','E4','B3');
+    if(isLeap){not=c(not,'G3')};nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # March
+    not=c('Db3','Bb3','B3','E4','G2','Bb3','B3',
+          'Db3','Bb3','B3','E4','E2','Bb3','B3',
+          'Db3','Bb3','B3','E4','G2','Bb3','B3',
+          'Db3','Bb3','B3','E4','E2','G3','B3','E4','B3','G3');nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # April
+    not=c('C3','A3','B3','E4','Gb3','A3','B3',
+          'C3','A3','B3','E4','G3','A3','B3',
+          'C3','A3','B3','E4','Gb3','A3','B3',
+          'C3','A3','B3','E4','Gb3','A3','B3','C3','A2');nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)  
+    # May
+    not=c('B2','A3','B3','E4','Gb3','A3','B3',
+          'B2','A3','B3','E4','G2','A3','B3',
+          'B2','A3','B3','E4','Eb3','A3','B3',
+          'B2','A3','B3','E4','G2','A3','B3','E4','G2','A2');nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)  
+    # June
+    not=c('Gb2','Bb3','B3','E4','G3','Bb3','B3',
+          'Gb2','Bb3','B3','E4','Gb3','Bb3','B3',
+          'Gb2','Bb3','B3','E4','D3','Bb3','B3',
+          'Gb2','Bb3','B3','E4','E3','Bb3','B3','E3','D3');nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)  
+    # July / August
+    not=c(rep(c('B2','Db4','D4','B3','Db4','D3','Db4','Gb4',
+                'B2','Db4','D4','B3','Db4','hA4'),4),
+          c('B2','Db4','D4','B3','Db4','D3'))
+    nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)   
+    # September
+    not=c('G2','Db4','D4','D3','Db4','G3','D3','Gb4',
+          'G2','Db4','D4','D3','Db4','G3',
+          'G2','Db4','D4','D3','Db4','G3','D3','Gb4',
+          'G2','Db4','D4','D3','Db4','G3','D3','E4');nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)  
+    # October
+    not=c('A2','E3','G3','D4','G2','E3','G3',
+          'A2','E3','G3','D4','G2','E3','G3',
+          'A2','Gb3','G3','E4','G2','Gb3','G3',
+          'A2','A3','G3','G4','A3','G3','G4','E4','G4','G3');nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)   
+    # November
+    not=c('C3','G3','D4','E4','Gb3','G3','D4',
+          'C3','G3','D4','E4','E3','G3','D4',
+          'C3','G3','D4','E4','D3','G3','D4',
+          'C3','G3','D4','E4','D4','C3','A2','B2','G2');nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)  
+    # December
+    not=c('F2','A3','B3','E4','F3','A3','B3',
+          'F2','A3','B3','E4','D3','A3','B3',
+          'F2','A3','B3','E4','C3','A3','B3',
+          'F2','A3','B3','E4','A2','A3','B3','E4','D3','E3');nT=length(not)
+    vol=c(m)*rbeta(nT,1/random_vol,1)
+    dur=rep(1,nT)*tp16
+    fade=rep(Inf,nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+  }
+  # randomize 
+  TIM=TIM+rnorm(length(TIM),sd=tp16*random_tim)
+  # Play it 
+  w=play.instrument(guitar,notes=NOT,time=TIM,volume=VOL,nmax=50*10^6,fadeout=FADE)
+  writeWave(w,'bass.wav')
+  return(w)
+}
+
 
 # Cymbals ---------------
 getCymbal <- function(bpm,tstart,intro,type,isLeap=FALSE,ff=0.6,f=0.4,m=0.2,p=0.08,random_tim=0.02,random_vol=0.02){

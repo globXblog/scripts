@@ -98,7 +98,7 @@ allBass=allBass %>% applyMaster()
 allLeft=mix(list(wpiano[[1]]$left,wpiano[[2]]$left,wpiano[[3]]$left,wpiano[[4]]$left,wpiano[[5]]$left))
 allRight=mix(list(wpiano[[1]]$right,wpiano[[2]]$right,wpiano[[3]]$right,wpiano[[4]]$right,wpiano[[5]]$right))
 final=mix(list(wcount,allKick,allCymbals,allBass,allBass,allLeft,allRight,allGuitar,allGuitar),
-          volume=c(0.5,0.7,0.9,0.8,0.8,0.5,0.5,0.3,0.3),
+          volume=c(0.5,0.7,0.98,0.8,0.8,0.5,0.5,0.3,0.3),
           pan=c(0,0,0,-0.3,0.3,-1,1,-0.7,0.7))
 
 writeWave(final,'temp.wav')

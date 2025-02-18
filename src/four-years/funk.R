@@ -515,7 +515,7 @@ getCymbal <- function(bpm,tstart,intro,type,isLeap=FALSE,ff=0.6,f=0.4,m=0.2,p=0.
 
       # MIX ----
       w=mix(list(wride,whh),
-            volume=c(1,0.9),
+            volume=c(1,0.8),
             pan=c(-0.5,0.5))
       
       } else {

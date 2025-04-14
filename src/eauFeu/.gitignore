@@ -1,0 +1,17 @@
+*.wav
+*.mp3
+*.mp4
+*.pdf
+*.jpg
+*.RData
+*.png
+*.xml
+OLD_*
+getData.R
+getData_OLD.R
+RHN.txt
+toBeRemoved.txt
+00_site_metadata.txt
+stations
+explore2Data
+img

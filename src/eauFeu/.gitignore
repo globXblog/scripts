@@ -6,6 +6,7 @@
 *.RData
 *.png
 *.xml
+*.msc*
 OLD_*
 getData.R
 getData_OLD.R

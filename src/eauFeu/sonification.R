@@ -5,7 +5,46 @@ load('extents_model5.RData')
 
 all=list();k=0
 
+chords=list(c('F2','F3','G3','C4','G4'),
+            c('G2','Eb3','Bb3','D4','E4'),
+            c('A2','E3','G3','C4','G4'),
+            c('Bb2','F3','Bb3','C4','F4'),
+            c('C3','G4','C4','D4','G4'),
+            c('D3','A3','C4','G4','A4'))
+
 # SWI ----
+vMax=120
+what='SWI'
+DF=dat %>% filter(var==what)
+x=(dat$extent[mask]/100)^1
+years=unique(DF$year)
+notes=list()
+for(i in 1:length(years)){
+  dy=DF %>% filter(year==years[i])
+  x=dy$extent/100
+  maxi=max(x)
+  k=max(ceiling(maxi*length(chords)),1)
+  vol=x*vMax
+  p=pitchMapping(x,rev(chords[[k]]))
+  notes=c(notes,getNotes(pitches=p,loudnesses=vol) %>% tieNotes())
+}
+foo=getMeasures(notes,beats=6,beatType=8)
+writeMXL(score(foo),'foo.xml')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 gamme=(c('F1','G2','A2','A2','B2','C3','D3','E3','G3','C4','E4','G4'))
 var='SWI'
 mask=dat$var==var

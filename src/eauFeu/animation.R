@@ -15,12 +15,12 @@ makeplot=function(){
   colors=c('#0F1B07','#150101','#1E1F26')
   lcolors=c('#89DA59','#F34A4A','#D0E1F9')
   black='#080808'
-  gray='#161616'
+  gray='#f5cc4d'
   thick=4
   normal=1.5
   thin=0.1
   persistence=12*5
-  for(k in 1:NROW(temps)){
+  for(k in 1:12){
     message(k)
     gs=vector('list',length(vars))
     for(i in 1:length(vars)){
@@ -35,9 +35,9 @@ makeplot=function(){
       # +
       #   geom_hline(yintercept=0,color=lcolors[i],linewidth=thick,alpha=0.2)
       if(NROW(DF)>1) {
-        g=g+geom_path(data=DF,aes(month,extent),color=lcolors[i],linewidth=thin)+
-          geom_path(data=DF,aes(month,extent,alpha=ix),linewidth=thick,color=lcolors[i])+
-          geom_path(data=DF,aes(month,extent,linewidth=ix),color=lcolors[i])+
+        g=g+geom_path(data=DF,aes(month,extent,group=year),color=lcolors[i],linewidth=thin)+
+          geom_path(data=DF,aes(month,extent,group=year,alpha=ix),linewidth=thick,color=lcolors[i])+
+          geom_path(data=DF,aes(month,extent,group=year,linewidth=ix),color=lcolors[i])+
           scale_linewidth(range=c(thin,normal),guide=NULL)+
           scale_alpha(range=c(0,0.2),guide=NULL)
       }
@@ -56,15 +56,29 @@ makeplot=function(){
               axis.text=element_text(size=18,color=lcolors[i]),
               plot.title=element_text(size=36,color=lcolors[i],hjust=0.5),
               plot.background=element_rect(fill=black,color=black))
-      g
+       # g
       gs[[i]]=g
     }
-    yg=ggplot()+annotate('text',0,0,label=DF$year[k],color=gray,size=36)+
+    tbig=36
+    tlarge=24
+    tmed=12
+    alf=0.7
+    yg=ggplot()+ylim(0,1)+
+      annotate('text',0,1,label=DF$year[k],color=gray,size=tbig,vjust=1,alpha=0.25)+
       theme_void()+
       theme(plot.background=element_rect(fill=black,color=black))
-    final=wrap_plots(gs[[1]],
-               wrap_plots(gs[[2]],yg,gs[[3]],widths=c(1,0.5,1)),
-               ncol=1,heights=c(1,1))&
+    leftg=ggplot()+coord_cartesian(ylim=c(0,1),xlim=c(0,1))+
+      theme_void()+
+      theme(plot.background=element_rect(fill=black,color=black))+
+      annotate('text',0,1.05,label='Main Title',color=gray,size=tlarge,hjust=0,vjust=1,alpha=alf)+
+      annotate('text',0,0.7,label='SWI = Soil Wetness Index',color=lcolors[1],size=tmed,hjust=0,vjust=1,alpha=alf)+
+      annotate('text',0,0.5,label='FWI = Fire Weather Index',color=lcolors[2],size=tmed,hjust=0,vjust=1,alpha=alf)+
+      annotate('text',0,0.3,label='Q = River Streamflow',color=lcolors[3],size=tmed,hjust=0,vjust=1,alpha=alf)
+    
+    
+    top=wrap_plots(leftg,gs[[1]],leftg,nrow=1)
+    bottom=wrap_plots(gs[[2]],yg,gs[[3]],widths=c(1,0.5,1),nrow=1)
+    final=wrap_plots(top,bottom,ncol=1,heights=c(1,1))&
       theme(plot.background=element_rect(fill=black,color=black))
     print(final)
   }

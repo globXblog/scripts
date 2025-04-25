@@ -47,7 +47,7 @@ makeplot=function(){
         scale_y_continuous(breaks=c(0,100),limits=c(0,100))+
         annotate('text',x=11,y=0,label='0%  ',hjust=0.95,color=lcolors[i],size=6)+
         annotate('text',x=11,y=100,label=' 100%',hjust=0,color=lcolors[i],size=6)+
-        labs(title=vars[i])+
+        # labs(title=vars[i])+
         theme_light()+
         theme(panel.grid.minor.x=element_blank(),panel.grid.major.x=element_blank(),
               axis.ticks=element_blank(),panel.border = element_blank(),
@@ -60,25 +60,37 @@ makeplot=function(){
       gs[[i]]=g
     }
     tbig=36
-    tlarge=24
-    tmed=12
-    alf=0.7
-    yg=ggplot()+ylim(0,1)+
-      annotate('text',0,1,label=DF$year[k],color=gray,size=tbig,vjust=1,alpha=0.25)+
-      theme_void()+
+    tlarge=20
+    tmed=10
+    tsmall=8
+    alf=0.9
+    yg=ggplot()+ylim(0,1)+theme_void()+
+      annotate('text',0,1,label=DF$year[k],color=gray,size=tbig,vjust=1,alpha=alf)+
       theme(plot.background=element_rect(fill=black,color=black))
-    leftg=ggplot()+coord_cartesian(ylim=c(0,1),xlim=c(0,1))+
-      theme_void()+
+    rightg=ggplot()+coord_cartesian(ylim=c(0,1),xlim=c(0,1))+theme_void()+
       theme(plot.background=element_rect(fill=black,color=black))+
-      annotate('text',0,1.05,label='Main Title',color=gray,size=tlarge,hjust=0,vjust=1,alpha=alf)+
-      annotate('text',0,0.7,label='SWI = Soil Wetness Index',color=lcolors[1],size=tmed,hjust=0,vjust=1,alpha=alf)+
-      annotate('text',0,0.5,label='FWI = Fire Weather Index',color=lcolors[2],size=tmed,hjust=0,vjust=1,alpha=alf)+
-      annotate('text',0,0.3,label='Q = River Streamflow',color=lcolors[3],size=tmed,hjust=0,vjust=1,alpha=alf)
+      annotate('text',0,0.7,label='SWI = Soil Wetness Index',color=lcolors[1],size=tmed,hjust=0,vjust=0,alpha=alf)+
+      annotate('text',0,0.5,label='FWI = Fire Weather Index',color=lcolors[2],size=tmed,hjust=0,vjust=0,alpha=alf)+
+      annotate('text',0,0.3,label='Q = River Streamflow',color=lcolors[3],size=tmed,hjust=0,vjust=0,alpha=alf)
+    lab1=paste0('Curves show the spatial extent\n',
+               '[in % of France surface] of\n',
+               'drought and fire conditions, for\n',
+               'each month of the period 1959-2099\n')
+    lab2=paste0('Years between 1959 and 2023\n',
+                'correspond to observations, \n',
+                'years between 2024 and 2099 to\n',
+                'simulations from a climate model.\n')
+    leftg=ggplot()+coord_cartesian(ylim=c(0,1),xlim=c(0,1),expand=FALSE)+theme_void()+
+      theme(plot.background=element_rect(fill=black,color=black))+
+      annotate('text',0.05,0.95,label=lab1,color=gray,size=tsmall,hjust=0,vjust=1,alpha=alf)+
+      annotate('text',0.05,0,label=lab2,color=gray,size=tsmall,hjust=0,vjust=0,alpha=alf)
+    titleg=ggplot()+coord_cartesian(ylim=c(0,1),xlim=c(0,1),expand=FALSE)+theme_void()+
+      theme(plot.background=element_rect(fill=black,color=black))+
+      annotate('text',0,0.95,label='Droughts and Fire Weather in France, 1959-2099',color=gray,size=tlarge,hjust=0,vjust=1,alpha=alf)
     
-    
-    top=wrap_plots(leftg,gs[[1]],leftg,nrow=1)
+    top=wrap_plots(leftg,gs[[1]],rightg,widths=c(1,1.25,1),nrow=1)
     bottom=wrap_plots(gs[[2]],yg,gs[[3]],widths=c(1,0.5,1),nrow=1)
-    final=wrap_plots(top,bottom,ncol=1,heights=c(1,1))&
+    final=wrap_plots(titleg,top,bottom,ncol=1,heights=c(0.2,1,1))&
       theme(plot.background=element_rect(fill=black,color=black))
     print(final)
   }

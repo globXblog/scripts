@@ -1,6 +1,6 @@
 library(ggplot2);library(patchwork)
 library(dplyr)
-library(sequenceR);library(av)
+library(sequenceR);library(av);library(tuneR)
 library(BFunk)
 
 # Guitar ---------------

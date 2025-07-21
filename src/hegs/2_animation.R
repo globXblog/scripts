@@ -124,4 +124,6 @@ Q=anim_im[grep('/var1',anim_im)]
 inter=anim_im[grep('intro_var2',anim_im)]
 P=anim_im[grep('/var2',anim_im)]
 flist=c(intro,Q,inter,P)
-av_encode_video(input=flist,audio='HEGS.mp3',output='HEGS.mp4',framerate=fps)
+noGuitar=TRUE
+fname=paste0('HEGS',ifelse(noGuitar,'_noGuitar',''))
+av_encode_video(input=flist,audio=paste0(fname,'.mp3'),output=paste0(fname,'.mp4'),framerate=fps)

@@ -111,8 +111,16 @@ nbeat=3*nyear # total number of beats
 d=(nbeat*60)/bpm # duration of the video
 fps=nframes/d # frames per second
 resfactor=1 # resolution factor. 1 is OKish, 2 recommended for good quality, but VERY long to run (dozen of hours)
+noGuitar=TRUE
 # Create video
-av_capture_graphics(makeplot(),output='ElNinoz.mp4',
-                    audio='ElNinoz.mp3', # NOTE: To be commented out if you don't have the audio file
+if(noGuitar){
+  audioFile='ElNinoz_noGuitar.wav'
+  outputFile='ElNinoz_noGuitar.mp4'
+} else {
+  audioFile='ElNinoz.mp3'
+  outputFile='ElNinoz.mp4'
+}
+av_capture_graphics(makeplot(),output=outputFile,
+                    audio=audioFile, # NOTE: To be commented out if you don't have the audio file
                     res=72*resfactor,
                     width=1280*resfactor,height=720*resfactor,framerate=fps)

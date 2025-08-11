@@ -110,6 +110,197 @@ getGuitar <- function(bpm,ff=1,f=0.8,m=0.5,p=0.3,random_tim=0.02,random_vol=0.02
   return(w)
 }
 
+getGuitar_v2 <- function(bpm,ff=1,f=0.8,m=0.5,p=0.3,random_tim=0.02,random_vol=0.02){
+  if(file.exists('guitar_v2.wav')){
+    w=readWave('guitar_v2.wav')
+  } else {
+    load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/guitarPhilharmonia.RData')
+    guitar=guitarPhilharmonia
+    tp4=1/(bpm/60)
+    tp16=tp4/4
+    # Intro 1
+    nT=16*2
+    tim=tp16*((1:nT)-1)+c(0,rnorm(nT-1,sd=tp16*random_tim))
+    vol=rep(c(f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1) #*seq(0.1,1,length.out=nT)
+    not=rep(c('B3','B4','B3','B3','B4','B3','B3','B4'),length.out=nT)
+    TIM=tim;VOL=vol;NOT=not
+    # Intro 2 
+    nT=16*2
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(m,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=rep(c('E3','E4','B3','B3','E4','B3','D4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Main theme 
+    nT=16*2*2*4
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(ff,p,p,f,p,p,f,p,rep(c(m,p,p,f,p,p,f,p),7)),4)*rbeta(nT,1/random_vol,1)
+    not=rep(
+      c('E2','E4','B3','B3','E4','B3','D4','E4',
+        rep(c('E3','E4','B3','B3','E4','B3','D4','E4'),3),
+        rep(c('Gb3','E4','B3','A3','E4','B3','E4','E4'),4)),
+      4)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Descending part 
+    nT=16*2
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=rep(c('A3','E4','B3','C4','E4','B3','G4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    not=rep(c('Ab3','E4','B3','D4','E4','B3','Gb4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    not=c(rep(c('G3','E4','B3','D4','E4','B3','Gb4','E4'),length.out=nT/2),
+          rep(c('Gb3','E4','B3','D4','E4','B3','Gb4','E4'),length.out=nT/2))
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    not=rep(c('F3','E4','B3','D4','E4','B3','F4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    not=rep(c('F3','E4','B3','B3','E4','B3','F4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Flamenco part 
+    nT=16*2*3
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(ff,p,p,f,p,p,f,p,f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=rep(c('E2','E4','B3','B3','E4','B3','E4','E4','E3','E4','B3','B3','E4','B3','E4','E4',
+              'E2','E4','B3','B3','E4','B3','F4','E4','E3','E4','B3','B3','E4','B3','F4','E4'),
+            length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    nT=16*2
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(ff,p,p,f,p,p,f,p,f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=rep(c('E2','E4','B3','B3','E4','B3','E4','E4','E3','E4','B3','B3','E4','B3','E4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Cuban part 
+    nT=16*2*4
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=c('C3','E4','B3','E3','E4','B3','C4','E4',
+          'B2','E4','B3','Eb3','E4','B3','A3','E4',
+          'E2','E4','B3','E3','E4','B3','G3','E4',
+          'Db3','E4','B3','G3','E4','B3','A3','E4',
+          'C3','E4','B3','E3','E4','B3','C4','E4',
+          'B2','E4','B3','Eb3','E4','B3','A3','E4',
+          'E2','E3','G3','B3','E4','D4','B3','G3',
+          'G3','E4','B3','Gb3','E4','B3','E3','E4',
+          'C3','E4','B3','E3','E4','B3','C4','E4',
+          'B2','E4','B3','Eb3','E4','B3','A3','E4',
+          'E2','E4','B3','E3','E4','B3','G3','E4',
+          'Db3','E4','B3','G3','E4','B3','A3','E4',
+          'C3','E4','B3','E3','E4','B3','C4','E4',
+          'B2','E4','B3','Eb3','E4','B3','A3','E4',
+          'E2','E4','B3','E3','E4','B3','G3','E4',
+          'G2','E4','B3','E3','E4','B3','G3','E4')
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # outro 
+    nT=16*2*4
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=c(rep(c('Db3','E4','B3','G3','E4','B3','A3','E4'),4),
+          rep(c('C3','E4','B3','G3','E4','B3','A3','E4'),2),
+          rep(c('B2','E4','B3','Gb3','E4','B3','A3','E4'),2),
+          rep(c('Bb2','E4','B3','G3','E4','B3','A3','E4'),4),
+          c('B2','E4','B3','Gb3','E4','B3','G3','E4',
+            'B2','E4','B3','Gb3','E4','B3','A3','E4',
+            'B2','E4','B3','Gb3','E4','B3','B3','E4',
+            'B2','E4','B3','Gb3','E4','B3','B3','E4'))
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    #####################
+    # Repeat -----------
+    #####################
+    # Intro 1
+    nT=16*2
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1) #*seq(0.1,1,length.out=nT)
+    not=rep(c('B3','B4','B3','B3','B4','B3','B3','B4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Intro 2 
+    nT=16*2
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(m,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=rep(c('E3','E4','B3','B3','E4','B3','D4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Main theme 
+    nT=16*2*2*4
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(ff,p,p,f,p,p,f,p,rep(c(m,p,p,f,p,p,f,p),7)),4)*rbeta(nT,1/random_vol,1)
+    not=rep(
+      c('E2','E4','B3','B3','E4','B3','D4','E4',
+        rep(c('E3','E4','B3','B3','E4','B3','D4','E4'),3),
+        rep(c('Gb3','E4','B3','A3','E4','B3','E4','E4'),4)),
+      4)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Descending part 
+    nT=16*2
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=rep(c('A3','E4','B3','Db4','E4','B3','Ab4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    not=rep(c('Ab3','E4','B3','B3','E4','B3','Gb4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    not=c(rep(c('G3','E4','B3','B3','E4','B3','Gb4','E4'),length.out=nT/2),
+          rep(c('Gb3','E4','B3','Db4','E4','B3','Gb4','E4'),length.out=nT/2))
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    not=rep(c('F3','E4','B3','D4','E4','B3','F4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    not=rep(c('F3','E4','B3','B3','E4','B3','F4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Flamenco part 
+    nT=16*2*3
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(ff,p,p,f,p,p,f,p,f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=rep(c('E2','E4','B3','B3','E4','B3','E4','E4','E3','E4','B3','B3','E4','B3','E4','E4',
+              'E2','E4','B3','B3','E4','B3','F4','E4','E3','E4','B3','B3','E4','B3','F4','E4'),
+            length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    nT=16*2
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(ff,p,p,f,p,p,f,p,f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=rep(c('E2','E4','B3','B3','E4','B3','E4','E4','E3','E4','B3','B3','E4','B3','E4','E4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # Cuban part 
+    nT=16*2*4
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=c('C3','E4','B3','E3','E4','B3','C4','E4',
+          'B2','E4','B3','Eb3','E4','B3','A3','E4',
+          'E2','E4','B3','E3','E4','B3','G3','E4',
+          'Db3','E4','B3','G3','E4','B3','A3','E4',
+          'C3','E4','B3','E3','E4','B3','C4','E4',
+          'B2','E4','B3','Eb3','E4','B3','A3','E4',
+          'E2','E3','G3','B3','E4','D4','B3','G3',
+          'G3','E4','B3','Gb3','E4','B3','E3','E4',
+          'C3','E4','B3','E3','E4','B3','C4','E4',
+          'B2','E4','B3','Eb3','E4','B3','A3','E4',
+          'E2','E4','B3','E3','E4','B3','G3','E4',
+          'Db3','E4','B3','G3','E4','B3','A3','E4',
+          'C3','E4','B3','E3','E4','B3','C4','E4',
+          'B2','E4','B3','Eb3','E4','B3','A3','E4',
+          'E2','E4','B3','E3','E4','B3','G3','E4',
+          'G2','E4','B3','E3','E4','B3','G3','E4')
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # outro 
+    nT=16*2*4
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)
+    not=c(rep(c('Db3','E4','B3','G3','E4','B3','A3','E4'),4),
+          rep(c('C3','E4','B3','G3','E4','B3','A3','E4'),2),
+          rep(c('B2','E4','B3','Gb3','E4','B3','A3','E4'),2),
+          rep(c('Bb2','E4','B3','G3','E4','B3','A3','E4'),4),
+          c('B2','E4','B3','Gb3','E4','B3','G3','E4',
+            'B2','E4','B3','Gb3','E4','B3','A3','E4',
+            'B2','E4','B3','Gb3','E4','B3','B3','E4',
+            'B2','E4','B3','Gb3','E4','B3','B3','E4'))
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    # END
+    nT=16*8
+    tim=tp16*(1:nT)+rnorm(nT,sd=tp16*random_tim)
+    vol=rep(c(f,p,p,f,p,p,f,p),length.out=nT)*rbeta(nT,1/random_vol,1)*c(rep(1,nT/4),seq(1,0,length.out=3*nT/4))^2
+    not=rep(c('B3','B4','B3','B3','B4','B3','B3','B4'),length.out=nT)
+    TIM=c(TIM,tim+max(TIM));VOL=c(VOL,vol);NOT=c(NOT,not)
+    
+    w=play.instrument(guitar,notes=NOT,time=TIM,volume=VOL,fadeout=rep(Inf,length(NOT)),nmax=20*10^6)
+    writeWave(w,'guitar_v2.wav')
+  }
+  return(w)
+}
 # Bass ---------------
 getBass <- function(bpm,ff=1,f=0.8,m=0.6,p=0.3,random_tim=0.02,random_vol=0.02){
   if(file.exists('bass.wav')){
@@ -192,6 +383,154 @@ getBass <- function(bpm,ff=1,f=0.8,m=0.6,p=0.3,random_tim=0.02,random_vol=0.02){
     # Play it 
     w=play.instrument(bass,notes=NOT,time=TIM,volume=VOL,nmax=20*10^6,fadeout=FADE+0.2)
     writeWave(w,'bass.wav')
+  }
+  return(w)
+}
+
+getBass_v2 <- function(bpm,ff=1,f=0.8,m=0.6,p=0.3,random_tim=0.02,random_vol=0.02){
+  if(file.exists('bass_v2.wav')){
+    w=readWave('bass_v2.wav')
+  } else {
+    load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/bassStandup.RData')
+    bass=bassStandup
+    tp4=1/(bpm/60)
+    tp16=tp4/4
+    tp2=2*tp4
+    tp1=4*tp4
+    t0=tp1*4
+    # Main theme 
+    not=c('E2', 'Gb1','E1', 'Gb1',  rep('Gb2',8),    'E2', 'Gb1','E1', 'Gb1',  rep('Gb2',8));nT=length(not)
+    vol=c(f,    m,    m,    m,      m,0,p,m,0,m,0,p, m,    m,    m,    m,      m,0,p,m,0,m,0,p)*rbeta(nT,1/random_vol,1) 
+    dur=c(2*tp1,2*tp1,2*tp1,1.5*tp1,rep(tp16,8),     2*tp1,2*tp1,2*tp1,1.5*tp1,rep(tp16,8))
+    fade=rep(Inf,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=tim;VOL=vol;NOT=not;FADE=fade
+    # Descending part 
+    not= c('A2',  'C3',  'G3',   'Ab2', 'D3',  'Gb3',  'G2',  'D3',  'Gb3',  'Gb2', 'D3',  'Gb3',  'F2',  'D3',  'F3',  'F2',  'D3',  'F3');nT=length(not)
+    vol= c(f,     p,     f,      f,     p,     f,      f,     p,     f,      f,     p,     f,      f,     p,     f,      f,     m,     f)*rbeta(nT,1/random_vol,1) 
+    dur= c(3*tp16,3*tp16,26*tp16,3*tp16,3*tp16,26*tp16,3*tp16,3*tp16,10*tp16,3*tp16,3*tp16,10*tp16,3*tp16,3*tp16,10*tp16,3*tp16,3*tp16,10*tp16)
+    fade=c(Inf,   0,     Inf,    Inf,   0,     Inf,    Inf,   0,     Inf,    Inf,   0,     Inf,    Inf,   0,     Inf,    Inf,   0,     Inf)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # Transition to Flamenco part
+    not= c('F2',  'F2',  'B2','F3','B2','F2',  'F2', 'B2', 'F3','F3','F2',  'F2',  'B2','F3','B2','F3','F3','B2','F3','F2','F2','F3','F3');nT=length(not)
+    vol= c(ff,    f,     p,   f,   f,   f,     f,     p,   f,   m,   ff,    f,     p,   f,   f,   f,   f,   p,   f,   p,   p,   f,  f)*rbeta(nT,1/random_vol,1) 
+    dur= c(3*tp16,2*tp16,tp16,tp16,tp16,3*tp16,2*tp16,tp16,tp16,tp16,3*tp16,2*tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16)
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # Flamenco part 
+    not= rep(c('E1',  'E3',  'D3','E3','B2','E2','E3','D3','E3',  'D2','E2','B1','E1',  'E3',  'E3','G3','B2','E2','F3','D3','F3',  'D2','E2','B1'),3);nT=length(not)
+    dur= rep(c(3*tp16,2*tp16,tp16,tp16,tp16,tp16,tp16,tp16,2*tp16,tp16,tp16,tp16,3*tp16,2*tp16,tp16,tp16,tp16,tp16,tp16,tp16,2*tp16,tp16,tp16,tp16),3)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    not= c('E1',  'E3',  'D3','E3','B2','E1',  'E3',  'D3','E3',  'E2',  'E2',  'E2',  'E2',  'A1', 'B1');nT=length(not)
+    dur= c(3*tp16,2*tp16,tp16,tp16,tp16,3*tp16,2*tp16,tp16,2*tp16,3*tp16,3*tp16,2*tp16,3*tp16,3*tp16,2*tp16)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # Cuban part 
+    # not= c('C2',  'B2',  'A2',  'Eb2', 'G2',  'Gb2', 'E2',  'G2',  'A2',  'B2',  'A2',  'Eb2', 'E2',  'D3',  'C2');nT=length(not)
+    not= c('C2',  'E2',  'B1',  'Eb2', 'E2',  'G2',  'Db2', 'G2',  'A2',  'E2',  'B1',  'Eb2', 'E2',  'G2',  'D3',  'G2',  'Gb2', 'E2');nT=length(not)
+    dur= c(3*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,2*tp16,3*tp16,3*tp16,2*tp16)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT);fade[15]=Inf
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    not= c('C2',  'B2',  'A2',  'Eb2', 'E2',  'G2',  'Db2', 'A2',  'C2',  'E2',  'B1',  'Eb2', 'E2',  'B1',  'G2',  'A2',  'Db2');nT=length(not)
+    dur= c(3*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,2*tp16)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # outro
+    not= c('Db2', 'Db2', 'Db2',  'Db2', 'Db2',  'C2',  'D3',  'G3',   'B1',  'Gb3');nT=length(not)
+    dur= c(3*tp16,3*tp16,10*tp16,6*tp16,10*tp16,3*tp16,3*tp16,10*tp16,6*tp16,10*tp16)
+    fade=c(0,     0,     0,      0,     0,      Inf,   0,     Inf,    Inf,   Inf)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    not= c('Bb1', 'A3',  'Bb2', 'Bb1',  'B2',   'B1');nT=length(not)
+    dur= c(6*tp16,10*tp16,6*tp16,10*tp16,16*tp16,16*tp16)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    ##############
+    # repeat -----
+    ##############
+    # Main theme 
+    t0=t0+tp1*4
+    not=c('E2', 'Gb1','E1', 'Gb1',  rep('Gb2',8),    'E2', 'Gb1','E1', 'Gb1',  rep('Gb2',8));nT=length(not)
+    vol=c(f,    m,    m,    m,      m,0,p,m,0,m,0,p, m,    m,    m,    m,      m,0,p,m,0,m,0,p)*rbeta(nT,1/random_vol,1) 
+    dur=c(2*tp1,2*tp1,2*tp1,1.5*tp1,rep(tp16,8),     2*tp1,2*tp1,2*tp1,1.5*tp1,rep(tp16,8))
+    fade=rep(Inf,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # Descending part 
+    not= c('A2',  'Db3',  'Ab3',   'Ab2', 'B2',  'Gb3',  'G2',  'B2',  'Gb3',  'Gb2', 'Db3',  'Gb3',  'F2',  'D3',  'F3',  'F2',  'D3',  'F3');nT=length(not)
+    vol= c(f,     p,     f,      f,     p,     f,      f,     p,     f,      f,     p,     f,      f,     p,     f,      f,     m,     f)*rbeta(nT,1/random_vol,1) 
+    dur= c(3*tp16,3*tp16,26*tp16,3*tp16,3*tp16,26*tp16,3*tp16,3*tp16,10*tp16,3*tp16,3*tp16,10*tp16,3*tp16,3*tp16,10*tp16,3*tp16,3*tp16,10*tp16)
+    fade=c(Inf,   0,     Inf,    Inf,   0,     Inf,    Inf,   0,     Inf,    Inf,   0,     Inf,    Inf,   0,     Inf,    Inf,   0,     Inf)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # Transition to Flamenco part
+    not= c('F2',  'F2',  'B2','F3','B2','F2',  'F2', 'B2', 'F3','F3','F2',  'F2',  'B2','F3','B2','F3','F3','B2','F3','F2','F2','F3','F3');nT=length(not)
+    vol= c(ff,    f,     p,   f,   f,   f,     f,     p,   f,   m,   ff,    f,     p,   f,   f,   f,   f,   p,   f,   p,   p,   f,  f)*rbeta(nT,1/random_vol,1) 
+    dur= c(3*tp16,2*tp16,tp16,tp16,tp16,3*tp16,2*tp16,tp16,tp16,tp16,3*tp16,2*tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16,tp16)
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # Flamenco part 
+    not= rep(c('E1',  'E3',  'D3','E3','B2','E2','E3','D3','E3',  'D2','E2','B1','E1',  'E3',  'E3','G3','B2','E2','F3','D3','F3',  'D2','E2','B1'),3);nT=length(not)
+    dur= rep(c(3*tp16,2*tp16,tp16,tp16,tp16,tp16,tp16,tp16,2*tp16,tp16,tp16,tp16,3*tp16,2*tp16,tp16,tp16,tp16,tp16,tp16,tp16,2*tp16,tp16,tp16,tp16),3)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    not= c('E1',  'E3',  'D3','E3','B2','E1',  'E3',  'D3','E3',  'E2',  'E2',  'E2',  'E2',  'A1', 'B1');nT=length(not)
+    dur= c(3*tp16,2*tp16,tp16,tp16,tp16,3*tp16,2*tp16,tp16,2*tp16,3*tp16,3*tp16,2*tp16,3*tp16,3*tp16,2*tp16)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # Cuban part 
+    # not= c('C2',  'B2',  'A2',  'Eb2', 'G2',  'Gb2', 'E2',  'G2',  'A2',  'B2',  'A2',  'Eb2', 'E2',  'D3',  'C2');nT=length(not)
+    not= c('C2',  'E2',  'B1',  'Eb2', 'E2',  'G2',  'Db2', 'G2',  'A2',  'E2',  'B1',  'Eb2', 'E2',  'G2',  'D3',  'G2',  'Gb2', 'E2');nT=length(not)
+    dur= c(3*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,2*tp16,3*tp16,3*tp16,2*tp16)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT);fade[15]=Inf
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    not= c('C2',  'B2',  'A2',  'Eb2', 'E2',  'G2',  'Db2', 'A2',  'C2',  'E2',  'B1',  'Eb2', 'E2',  'B1',  'G2',  'A2',  'Db2');nT=length(not)
+    dur= c(3*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,5*tp16,3*tp16,2*tp16)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # outro
+    not= c('Db2', 'Db2', 'Db2',  'Db2', 'Db2',  'C2',  'D3',  'G3',   'B1',  'Gb3');nT=length(not)
+    dur= c(3*tp16,3*tp16,10*tp16,6*tp16,10*tp16,3*tp16,3*tp16,10*tp16,6*tp16,10*tp16)
+    fade=c(0,     0,     0,      0,     0,      Inf,   0,     Inf,    Inf,   Inf)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    not= c('Bb1', 'A3',  'Bb2', 'Bb1',  'B2',   'B1');nT=length(not)
+    dur= c(6*tp16,10*tp16,6*tp16,10*tp16,16*tp16,16*tp16)
+    vol= rep(f,length.out=nT)*rbeta(nT,1/random_vol,1) 
+    fade=rep(0,length.out=nT)
+    foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
+    TIM=c(TIM,tim);VOL=c(VOL,vol);NOT=c(NOT,not);FADE=c(FADE,fade)
+    # randomize 
+    TIM=TIM+rnorm(length(TIM),sd=tp16*random_tim)
+    # avoid slight shift in bass instrument
+    TIM=TIM-0.05
+    # Play it 
+    w=play.instrument(bass,notes=NOT,time=TIM,volume=VOL,nmax=20*10^6,fadeout=FADE+0.2)
+    writeWave(w,'bass_v2.wav')
   }
   return(w)
 }
@@ -560,6 +899,81 @@ getX <- function(variable,bpm,intro,minRP=100,maxRP=1000){
     R=as.Wave(soundSample(wright))
     writeWave(L,paste0(variable,'left.wav'))
     writeWave(R,paste0(variable,'right.wav'))
+  }
+  return(list(left=L,right=R))
+}
+
+getX_v2 <- function(variable,bpm,intro,minRP=100,maxRP=1000){
+  if(file.exists(paste0(variable,'left_v2.wav'))){
+    L=readWave(paste0(variable,'left_v2.wav'))
+    R=readWave(paste0(variable,'right_v2.wav'))
+  } else {
+    load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/hangDrum.RData')
+    inst=hangDrum
+    scale1=rev(c('E3','B3','D4','B4'))
+    scale2=rev(c('Gb3','E4','Gb4','A4'))
+    scale3=rev(c('A3','Db4','Ab4','B4'))
+    scale4=rev(c('Ab3','B3','Gb4','Ab4'))
+    scale5=rev(c('G3','B3','Gb4','G4'))
+    scale6=rev(c('Gb3','Gb3','Db4','Gb4'))
+    scale7=rev(c('F3','F3','D4','F4'))
+    scale8=rev(c('F3','F3','B3','F4'))
+    scale9=rev(c('E3','E3','B3','E4'))
+    scale10=rev(c('E3','E3','B3','F4'))
+    scale11=rev(c('C3','D4','E4','G4'))
+    scale12=rev(c('B3','Eb4','Gb4','A4'))
+    scale13=rev(c('Db3','E4','G4','A4'))
+    scale14=rev(c('C3','E4','G4','A4'))
+    scale15=rev(c('B3','E4','G4','A4'))
+    scale16=rev(c('Bb3','E4','G4','A4'))
+    
+    scales=cbind(scale1,scale2,scale3,scale4,scale5,scale6,scale7,scale8,
+                 scale9,scale10,scale11,scale12,scale13,scale14,scale15,scale16)
+    tp4=1/(bpm/60)
+    tp16=tp4/4
+    tp24=tp4/6
+    nsc=NROW(scales)
+    iscale=c(rep(c(rep(1,24*2),rep(2,24*2)),4),
+             rep(3,24*2),rep(4,24*2),rep(5,24*1),rep(6,24*1),rep(7,24*2),rep(8,24*2),
+             rep(c(rep(9,24*1),rep(10,24*1)),3),rep(9,24*2),
+             rep(c(rep(11,24*0.5),rep(12,24*0.5),rep(1,24*1)),4),
+             rep(13,24*2),rep(14,24*1),rep(15,24*1),rep(16,24*2),rep(15,24*2))
+    
+    load(paste0(variable,'.RData'))
+    D$time=D$year-1916+(D$month-0.5)/12
+    D$itime=12*(D$year-1916)+D$month
+    wleft=wright=0
+    for(i in seq(1,NROW(sites),1)){
+      message(i)
+      ts=D[D$ID==sites$ID[i],c('itime','rp')]
+      ts=ts[ts$rp>minRP,]
+      nT=NROW(ts) 
+      if(nT>0){
+        u=ts$rp;u[u>maxRP]=maxRP
+        u=(u-minRP)/(maxRP-minRP) #u=(log10(u)-log10(minRP))/(log10(maxRP)-log10(minRP))
+        notes=round(0.5+u*nsc);notes[notes==0]=1;notes[notes>nsc]=nsc;notes=as.integer(notes)
+        # v=ts$rp;v[v>1000]=1000;v=(v-10)/990
+        ix=cbind(notes,iscale[ts$itime])
+        wpiano=play.instrument(inst,notes=scales[ix],time=intro*4*tp4+tp24*(ts$itime-1),
+                               fadeout=rep(Inf,nT),volume=u,nmax=20*10^60,pan=rep(min(1,sites$lon[i]/180),nT))
+        ndiff=length(wleft)-length(wpiano@left)
+        if(ndiff<0){
+          wleft=c(wleft,rep(0,-1*ndiff))
+          wright=c(wright,rep(0,-1*ndiff))
+          pleft=wpiano@left
+          pright=wpiano@right
+        } else {
+          pleft=c(wpiano@left,rep(0,ndiff))
+          pright=c(wpiano@right,rep(0,ndiff))
+        }
+        wleft=wleft+pleft
+        wright=wright+pright
+      }
+    }
+    L=as.Wave(soundSample(wleft))
+    R=as.Wave(soundSample(wright))
+    writeWave(L,paste0(variable,'left_v2.wav'))
+    writeWave(R,paste0(variable,'right_v2.wav'))
   }
   return(list(left=L,right=R))
 }

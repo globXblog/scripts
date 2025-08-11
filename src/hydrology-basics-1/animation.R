@@ -230,8 +230,17 @@ k <- length(lf)
 nStart <- (14*4)-1
 lf2 <- c(rep(lf[1],nStart),lf,rep(lf[k],(900-(55+m+dayOn+nLast+1))))
 
+noGuitar=TRUE
+if(noGuitar){
+  audioFile="HydrologyBasics1_noGuitar.wav"
+  outputFile="Sauze_noGuitar.mp4"
+} else {
+  audioFile="Sauze.mp3"
+  outputFile="Sauze.mp4"
+}
+
 av_encode_video(input=lf2,
-                audio="Sauze.mp3",
-                output="Sauze.mp4",
+                audio=audioFile,
+                output=outputFile,
                 framerate=(16/3))
 

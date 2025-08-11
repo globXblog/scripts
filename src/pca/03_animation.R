@@ -302,7 +302,16 @@ nEnd <- (12*10)-dayOn
 startImages <- c(rep(lfStart[1],(12*2)),lfStart[2:l],rep(lfStart[l],15),rep(lf[1],23))
 lf2 <- c(startImages,lf,rep(lf[k],nEnd))  # length(lf2) must be 744
 
+noGuitar=TRUE
+if(noGuitar){
+  audioFile="PCfunk_noGuitar.wav"
+  outputFile="PCfunk_noGuitar.mp4"
+} else {
+  audioFile="PCfunk.mp3"
+  outputFile="PCfunk.mp4"
+}
+
 av_encode_video(input=lf2,
-                audio="PCfunk.mp3",
-                output="PCA.mp4",
+                audio=audioFile,
+                output=outputFile,
                 framerate=7)

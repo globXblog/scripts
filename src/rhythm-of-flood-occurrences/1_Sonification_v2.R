@@ -1,9 +1,10 @@
-library(sequenceR);library(evd)
+library(sequenceR);library(musicXML)
+library(evd);library(dplyr)
 bpm=120 # tempo in beats per minute
 spt=(60/bpm)/4 # seconds per time step (here time step = 16th note i.e. 1/4 of a beat)
 set.seed(54321)
 RP=10 # return period
-nregular=2*RP #16*RP # number of time steps for regular event
+nregular=16*RP # number of time steps for regular event
 nflood=96*RP # number of time steps for random flood occurrences
 intro_nstep=4*RP # guitar-only intro
 
@@ -20,6 +21,16 @@ wait=c(RP,diff(tocc)) # waiting time between occurrences
 cwait=0*occ
 for(i in 1:length(occ)){cwait[i]=ifelse(occ[i]|i==1,0,cwait[i-1]+1)}
 cwait=c(rep(0,intro_nstep),cwait) # Add 0's for guitar intro
+
+plist=pitchMapping(occ,pitches=c('D1','C2'))
+llist=loudnessMapping(Q,89,124)
+notes=getNotes(pitches=plist,loudnesses=llist) #%>% tieNotes()
+m <- getMeasures(notes=notes,beats=5,beatType=8)
+s <- score(m)
+writeMXL(s,file='occ.xml')
+
+
+
 
 # # Load instruments
 # w=readMP3(file.path('samples','guitar1.mp3'))
@@ -38,53 +49,53 @@ cwait=c(rep(0,intro_nstep),cwait) # Add 0's for guitar intro
 #   samlist[[i]]=soundSample(0.5*(w@left+w@right))
 # }
 # bass=instrument(samlist)
-load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/drumkitStahl.RData')
-load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/bassStandup.RData')
-
-# Drums
-n=120 # n=length(occ)
-t0=0 # t0=(intro_nstep+1)*spt#-which(guitar1$wave!=0)[1]/guitar1$rate
-occ=occ[1:n]
-Q=Q[1:n]
-tim=t0+((1:n)-1)*spt
-# hi-hat
-m=0.6;p=0.08 
-hhVol=rep_len(c(m,0,p,0,p,0,p,0,p,0),n)
-hh=sequence(drumkitStahl[['hihat']],time=tim,volume=hhVol)
-# ride
-riVol=rep_len(c(1,0,1,1,0,1,0,1,1,0),n)
-ri=sequence(drumkitStahl[['ride']],time=tim,volume=riVol)
-# snare
-f=1;mf=0.65;m=0.4;mp=0.1;p=0.05;pp=0.02
-snVol=rep_len(c(0,p,0,f,p,0,p,mf,pp,p,0,mp,pp,pp,f,pp,0,p,mf,p),n)
-sn=sequence(drumkitStahl[['snare']],time=tim,volume=snVol)
-sn2=sequence(drumkitStahl[['snare3']],time=tim,volume=snVol)
-# kick
-# kVol=rep_len(c(f,0,m,0,0,0,0,0,0,m,f,0,m,0,0,0,0,0,0,0),n)
-kVol=occ
-ki=sequence(drumkitStahl[['bass']],time=tim,volume=kVol)
-# mix drums
-drum=mix(list(hh,ri,sn,sn2,ki,ki),volume=c(0.5,0.4,1,1,1,1),pan=c(-0.7,0.7,-0.5,0.5,0,0))
-# play(drum)
-
-# Bass
-bnotes=list()
-bnotes[['A']]=c('Gb1','Gb1','Gb1','G1','G1','G2','C2','Ab1','Ab1','Ab1',
-                'A1', 'A1', 'A1', 'A1','A2','A2','A2','A2', 'C3', 'Gb2')
-bn=rep_len(bnotes[['A']],n)
-bVol=occ
-envs=rep(list(envelope(t=c(0,0.01,0.1,1),v=c(0,1,0,0))),n)
-ba=play.instrument(bassStandup,notes=bn,time=tim,volume=bVol,
-                   fadeout=rep(Inf,length(tim)),
-                   env=envs)
-# Guitar
-w=readWave(file.path('samples_v2','main_A.wav'))
-sam=as.soundSample(w)
-tim=seq(0,n-1,2*RP)*spt
-main=sequence(sam,time=tim)
-
-final=mix(list(drum,ba,main),pan=c(0,0,0),volume=c(1,0.9,0.25))
-play(final)
+# load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/drumkitStahl.RData')
+# load('/home/benjamin.renard/BEN/GitHub/sequenceR/instruments/bassStandup.RData')
+# 
+# # Drums
+# n=120 # n=length(occ)
+# t0=0 # t0=(intro_nstep+1)*spt#-which(guitar1$wave!=0)[1]/guitar1$rate
+# occ=occ[1:n]
+# Q=Q[1:n]
+# tim=t0+((1:n)-1)*spt
+# # hi-hat
+# m=0.6;p=0.08 
+# hhVol=rep_len(c(m,0,p,0,p,0,p,0,p,0),n)
+# hh=sequence(drumkitStahl[['hihat']],time=tim,volume=hhVol)
+# # ride
+# riVol=rep_len(c(1,0,1,1,0,1,0,1,1,0),n)
+# ri=sequence(drumkitStahl[['ride']],time=tim,volume=riVol)
+# # snare
+# f=1;mf=0.65;m=0.4;mp=0.1;p=0.05;pp=0.02
+# snVol=rep_len(c(0,p,0,f,p,0,p,mf,pp,p,0,mp,pp,pp,f,pp,0,p,mf,p),n)
+# sn=sequence(drumkitStahl[['snare']],time=tim,volume=snVol)
+# sn2=sequence(drumkitStahl[['snare3']],time=tim,volume=snVol)
+# # kick
+# # kVol=rep_len(c(f,0,m,0,0,0,0,0,0,m,f,0,m,0,0,0,0,0,0,0),n)
+# kVol=occ
+# ki=sequence(drumkitStahl[['bass']],time=tim,volume=kVol)
+# # mix drums
+# drum=mix(list(hh,ri,sn,sn2,ki,ki),volume=c(0.5,0.4,1,1,1,1),pan=c(-0.7,0.7,-0.5,0.5,0,0))
+# # play(drum)
+# 
+# # Bass
+# bnotes=list()
+# bnotes[['A']]=c('Gb1','Gb1','Gb1','G1','G1','G2','C2','Ab1','Ab1','Ab1',
+#                 'A1', 'A1', 'A1', 'A1','A2','A2','A2','A2', 'C3', 'Gb2')
+# bn=rep_len(bnotes[['A']],n)
+# bVol=occ
+# envs=rep(list(envelope(t=c(0,0.01,0.1,1),v=c(0,1,0,0))),n)
+# ba=play.instrument(bassStandup,notes=bn,time=tim,volume=bVol,
+#                    fadeout=rep(Inf,length(tim)),
+#                    env=envs)
+# # Guitar
+# w=readWave(file.path('samples_v2','main_A.wav'))
+# sam=as.soundSample(w)
+# tim=seq(0,n-1,2*RP)*spt
+# main=sequence(sam,time=tim)
+# 
+# final=mix(list(drum,ba,main),pan=c(0,0,0),volume=c(1,0.9,0.25))
+# play(final)
 
 
 

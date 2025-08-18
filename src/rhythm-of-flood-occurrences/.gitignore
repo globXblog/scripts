@@ -1,6 +1,10 @@
 /*.wav
 /*.mp3
 /*.mp4
+/*.xml
+/*.mxl
+/*.mscz
+.mscbackup
 Q.txt
 samples_v2
 

@@ -1,5 +1,4 @@
 library(ggplot2);library(gridExtra)
-bpm=120 # tempo in beats per minute
 bkgCol='#333652'
 txtCol='#e9eaec'
 barCol='#fad02c'
@@ -67,11 +66,14 @@ animationPlots <- function(Q,Q10,intro_nstep=4*10,nRefresh=8*10+1,nOutro=12*10,x
   boxDF=data.frame(x=1:(length(Q)-nRefresh+1),y=Q[nRefresh:length(Q)])
   # Intro
   for(i in 1:intro_nstep){
+    message(paste0('Intro: ',i,' / ',intro_nstep))
     print(getMainPlot(g0,DF,subtitle = ' '))
   }
   # Occurrences
   current=0;k=0
   for(i in 1:length(occ)){
+    # for(i in 1:80){
+    message(paste0('Main: ',i,' / ',length(occ)))
     if(i==nRefresh){DF$y=eps}
     if(i<nRefresh){
       tit='... events occurring every 10 years'
@@ -96,13 +98,30 @@ animationPlots <- function(Q,Q10,intro_nstep=4*10,nRefresh=8*10+1,nOutro=12*10,x
     }
     print(g)
   }
-  for(i in 1:nOutro){print(g)}
+  for(i in 1:nOutro){
+    message(paste0('Outro: ',i,' / ',nOutro))
+    print(g)
+  }
 }
 
 resfactor=2 # resolution factor. 1 is OKish, 2 recommended for good quality, but longer to run
-fps=bpm*4/60
 # Create video
-av::av_capture_graphics(animationPlots(Q,Q10),
-                        output='Q10.mp4',audio='Q10.mp3',
+doV2=TRUE
+if(doV2){
+  bpm=115 # tempo in beats per minute
+  audio='HydrologyBasics2_v2.wav'
+  output='Q10_v2.mp4'
+  nRefresh=16*10+1
+  nOutro=36*10
+} else{
+  bpm=120
+  audio='Q10.mp3'
+  output='Q10.mp4'
+  nRefresh=8*10+1
+  nOutro=12*10
+}
+fps=bpm*4/60
+av::av_capture_graphics(animationPlots(Q,Q10,nRefresh=nRefresh,nOutro=nOutro),
+                        output=output,audio=audio,
                         res=72*resfactor,width=1280*resfactor,height=720*resfactor,framerate=fps)
  

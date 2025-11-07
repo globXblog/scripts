@@ -18,7 +18,7 @@ Pleft=foo$left;Pright=foo$right
 foo=getX_v2('P',bpm,intro=58)
 Pleft_v2=foo$left;Pright_v2=foo$right
 
-noGuitar=TRUE
+noGuitar=FALSE
 v2=TRUE
 if(noGuitar){vg=0} else {vg=0.4}
 if(v2){wguitar=wguitar_v2;wbass=wbass_v2;Pleft=Pleft_v2;Pright=Pright_v2}

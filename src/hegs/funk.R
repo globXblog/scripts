@@ -696,7 +696,7 @@ getClave <- function(bpm,f=0.8,m=0.8,p=0.8,random_tim=0.02,random_vol=0.02){
     nT=5*36
     not=rep('claves',nT)
     vol=rep(c(f,m,m,p,f),length.out=nT)*rbeta(nT,1/random_vol,1)
-    dur=rep(c(3*tp16,4*tp16,3*tp16,2*tp16,4*tp16),length.out=nT)
+    dur=rep(c(3*tp16,3*tp16,4*tp16,2*tp16,4*tp16),length.out=nT)
     foo=cumsum(c(t0,dur));tim=foo[1:length(dur)];t0=foo[length(foo)]
     TIM=tim;VOL=vol;NOT=not
     # 2-3 clave
